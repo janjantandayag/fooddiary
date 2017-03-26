@@ -204,10 +204,12 @@ input, select {
 }
 .mainPage{
     background:#e8e7e7;
+    overflow-x: hidden;
 }
 .mainPage header{
     background:#ffffff;
     padding:15px 0;
+    position: relative;
     -webkit-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
     -moz-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
     box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
@@ -239,11 +241,16 @@ input, select {
     color:#7b7272;
     margin-right:5px;
 }
-.right-col a{
+.right-col a,.icon{
     font-size: 100%;
     color:#7b7272;
     font-family: novaThin;   
     text-decoration: none;
+}
+.icon{
+    float:right;
+    margin-top:30px;
+    font-size:120%;
 }
 .right-col a:hover .fa,.right-col a:hover{
     color:#000000; 
@@ -260,7 +267,7 @@ input, select {
     display: inline-block;
     margin-left:10px;
 }
-.right-col ul li:last-child{
+.right-col ul li:nth-child(4){
     margin-left:50px;
 }
 .navActive a{
@@ -273,12 +280,58 @@ input, select {
     color:#edb727;
     font-weight: bold;
 }
+#mobile{
+    z-index: 1;
+}
+#mobile li{
+    list-style: none;
+    display: block;
+}
+#mobile a{
+    font-size: 100%;
+    color:#fff;
+    font-family: novaThin;   
+    text-decoration: none;
+}
+#mobile li{
+    padding:20px;
+}
+.icon{
+    display: none;
+}
+#mobile{
+    position: absolute;
+    background:#edb727;
+    width: 100%;
+    text-align: center;
+}
+#mobile a:hover{
+    color:#000;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #000;
+    transition: 1s all;
+}
+.mobile-navActive a{
+    color:#000;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #000;
+}
 .circumplex-model{
     width:100%;  
     height:500px;
     background:#ffffff;
     position: relative;
     overflow: hidden;
+}
+
+.displayNone{
+    top:-9999px;
+}
+.displayBlock{
+    left:0%;
+    top:79px;
+    transition: .5s all;
+
 }
 /* VERTICAL LINE */
 .circumplex-model:before{
@@ -329,16 +382,16 @@ input, select {
     margin-top:20px;
 }
 .circumplexTitle,.statTitle,.recentEntriesHeader{
-    text-transform: uppercase;
-    background:#b98c13;
-    color:#ffffff;
-    font-family: altCondensedSemibold;
-    font-size: 125%;
+    background: #ffffff;
+    color: #edb727;
+    font-family: novaThin;
+    font-size: 100%;
+    font-weight: bold;
     display: inline-block;
-    padding:10px 10px 10px 20px;
-    border-left:10px solid #edb727;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    padding: 10px 10px 10px 20px;
+    border-left: 2px solid #edb727;
+    border-right:2px solid #edb727;
+    border-top:2px solid #edb727;
 }
 #statChart{
     height: 500px;
@@ -392,11 +445,46 @@ input, select {
     #myCarousel{
         display: none;
     }
+    #topNav{
+        display: none;
+    }
+    .icon{
+        display: block;
+    }
+    .mobile{
+        display: block;
+    }
+    .foodAppName{
+        font-size:120%;
+        top:-27px;
+        margin-left:0px;
+    }
+    .left-col img{
+        width:70px;
+    }
+    .mainPage header{
+        padding:5px 0;
+    }
+    .statContainer{
+        margin-top:20px;
+    }
 }
 @media screen and (max-width:425px){
     .form-container{
         padding:0 20px;
     }
 }
+@media screen and (max-width:768px){
+    .recentEntriesImg{
+        margin-bottom:  0px;
+    }
+    .recentContainer{
+        text-align: center;
+        max-width:300px;
+        margin:20px auto;
+    }
+
+}
+
 
 

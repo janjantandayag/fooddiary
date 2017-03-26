@@ -16,13 +16,22 @@
 						<h1 class="foodAppName" >Food Diary App</h1>
 					</div>
 					<div class="right-col">
-						<ul>
+						<ul id="topNav">
 							<li><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
 							<li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a>	</li>	
 							<li class="navActive"><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
 							<li><a href="#"><span class="fa fa-user"></span> Hello, janjan</a></li>
 						</ul>	
 					</div>
+					<div>
+						<a href="javascript:void(0);" onclick="myFunction();" class="icon">&#9776;</a>
+                        <ul  id="mobile"  class="displayNone">
+                            <li><a href="archive.php"><span class="fa fa-calendar-o"></span> archive</a></li>
+                            <li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
+                            <li class="mobile-navActive"><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
+                            <li><a href="#"><span class="fa fa-user"></span> Hello, janjan</a></li>
+                        </ul>   
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -51,7 +60,7 @@
 						</div>		
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 statContainer">
 					<div class="stat-header">
 						<h3 class="statTitle">Statistics</h3>
 					</div>
@@ -71,42 +80,42 @@
 				</div>
 			</div>
 			<div class="row recent-container">
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/bukayo.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">bukayo</p>
 						<p class="recentEntriesDate">10/19/12</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/champorado.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">champorado</p>
 						<p class="recentEntriesDate">10/19/12</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/dinuguan.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">dinuguan</p>
 						<p class="recentEntriesDate">10/18/12</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/halo-halo.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">halo-halo</p>
 						<p class="recentEntriesDate">10/16/12</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/kalderata.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">kaldereta</p>
 						<p class="recentEntriesDate">10/15/12</p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4">
+				<div class="col-md-2 col-sm-4 recentContainer">
 					<img class="recentEntriesImg" src="img/kare-kare.jpg" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName">kare-kare</p>

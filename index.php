@@ -16,7 +16,7 @@
 						</div>
 						<div class="form--body">
 							<div class="form">
-								<form>
+								<form action="dashboard.php">
 									<input type="text" class="form-control" placeholder="username" />
 									<input type="password" class="form-control" placeholder="password" />
 									<input type="submit" value="Log in" />
