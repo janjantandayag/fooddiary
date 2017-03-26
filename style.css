@@ -1,0 +1,287 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/*END CSS RESET */
+
+
+@font-face {font-family: altCondensedSemibold;src: url(fonts/ProximaNovaAltcondensedSemibold.ttf);}
+@font-face {font-family: novaThin;src: url(fonts/ProximaNovaThin.ttf);}
+
+#mainPage{
+    background:#e8e7e7;
+    min-height: 100vh;
+    padding:25px 0px;
+}
+.container{
+	max-width:1200px;
+}
+.form-container{
+    background:#fff;
+    text-align: center;
+    padding:0 100px;
+}
+.img-logo{
+    max-width: 100px;
+    margin-top:50px;
+    margin-bottom: 20px;
+}
+.form--header h1{
+    font-size: 187.5%;
+    font-family: altCondensedSemibold;
+    text-transform: uppercase;
+    color:#6d6767;
+    margin-bottom: 30px;
+}
+.form--body input[type='text'],.form--body input[type='password']{
+    border: none;
+    height:40px;
+    border:1px solid #eeebeb;
+    border-radius: 5px;
+    box-shadow: none;
+    margin-bottom: 15px;
+    font-family: novaThin;
+    color:#afaaaa;
+    font-size:100%;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: novaThin;
+    color:#afaaaa;
+    font-size:100%;
+}
+.form--body input[type='submit']{
+    font-family: altCondensedSemibold;
+    font-size:125%;
+    color:#ffffff;
+    background:#eeb10c;
+    border:none;
+    border-radius: 0px;
+    padding:10px 0;
+    width:100%;
+    margin-bottom: 40px;
+    margin-top: 15px;
+}
+.form--footer{
+    position: relative;
+}
+.form--footer:before{
+    position: absolute;
+    content:'';
+    display: block;
+    left:10%;
+    top:0px;
+    width: 75%;
+    height: 1px;
+    background: #e0dcdc;
+}
+.form--footer a{
+    font-style: novaThin;
+    color:#7f95f4;
+    font-size: 100%;
+    font-style:italic;
+    display: inline-block;
+    margin:20px 0 65px 0;
+    text-decoration: none;
+}
+#myCarousel{
+    max-width:500px;
+}
+.carousel-indicators{
+    bottom:-30px;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 30px;
+    height: 5px;
+    text-indent: -999px;
+    cursor: pointer;
+    background:#b4afa3;
+    border:none;
+    border-radius: 0px;
+}
+.carousel-indicators .active
+{  width: 30px;
+    height: 5px;
+    margin: 1px;
+    background:#eeb10c;
+}
+.item img{
+    display: block;
+    margin:0 auto;
+    max-width: 100%;
+}
+.mainPage{
+    background:#e8e7e7;
+}
+.mainPage header{
+    background:#ffffff;
+    padding:15px 0;
+    -webkit-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+    -moz-box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+    box-shadow: 0px 26px 30px -13px rgba(203,199,199,1);
+}
+.left-col{
+    float:left;
+}
+.right-col{
+    float:right;
+}
+.left-col img{
+    max-width: 90px;
+    display: inline-block;
+}
+.foodAppName{
+    display: inline-block;
+    margin-left:15px;    
+    position: relative;
+    top:-33px;
+    font-size:250%;
+    color:#6d6767;
+    font-family: altCondensedSemibold;
+}
+.right-col{
+    margin-top:40px;
+}
+.right-col .fa{
+    font-size: 100%;
+    color:#7b7272;
+    margin-right:5px;
+}
+.right-col a{
+    font-size: 100%;
+    color:#7b7272;
+    font-family: novaThin;   
+    text-decoration: none;
+}
+.right-col a:hover .fa,.right-col a:hover{
+    color:#000000; 
+    transition: .8s all;
+}
+.right-col a:hover .fa{
+    border-bottom:2px solid #000000;
+    padding-bottom:10px;    
+}
+.right-col ul{
+    list-style: none;
+}
+.right-col ul li{
+    display: inline-block;
+    margin-left:10px;
+}
+.right-col ul li:last-child{
+    margin-left:50px;
+}
+.navActive a{
+    color:#edb727;    
+    font-weight: bold;
+}
+.navActive .fa{
+    padding-bottom: 10px;
+    border-bottom:2px solid #edb727;
+    color:#edb727;
+    font-weight: bold;
+}
+@media screen and (max-width:993px){    
+    #myCarousel{
+        display: none;
+    }
+}
+@media screen and (max-width:425px){
+    .form-container{
+        padding:0 20px;
+    }
+}
+
+
