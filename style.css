@@ -227,7 +227,7 @@ input, select {
     margin-left:15px;    
     position: relative;
     top:-33px;
-    font-size:250%;
+    font-size:160%;
     color:#6d6767;
     font-family: altCondensedSemibold;
 }
@@ -273,6 +273,121 @@ input, select {
     color:#edb727;
     font-weight: bold;
 }
+.circumplex-model{
+    width:100%;  
+    height:500px;
+    background:#ffffff;
+    position: relative;
+    overflow: hidden;
+}
+/* VERTICAL LINE */
+.circumplex-model:before{
+    position: absolute;
+    content:"";
+    display: inline;
+    left: 50%;
+    top:0%;
+    height:100%;
+    background:#c6c0c0;
+    width:1px;
+}
+/*HORIZONTAL LINE*/
+.circumplex-model:after{
+    position: absolute;
+    content:"";
+    display: inline;
+    left: 0%;
+    top:50%;
+    width: 100%;
+    background:#c6c0c0;
+    height:1px;
+}
+.label{
+    position: absolute;
+    text-transform: uppercase;
+    font-size:100%;
+    color:#7b7272;
+    font-weight: bold;
+    font-family: altCondensedSemibold;
+}
+.top{
+    left:44%;
+}
+.right{
+    right:0%;
+    top:46%;
+}
+.left{
+    left:0%;
+    top:46%;
+}
+.bottom{
+    bottom:0%;
+    left:44%;
+}
+#visualization{
+    margin-top:20px;
+}
+.circumplexTitle,.statTitle,.recentEntriesHeader{
+    text-transform: uppercase;
+    background:#b98c13;
+    color:#ffffff;
+    font-family: altCondensedSemibold;
+    font-size: 125%;
+    display: inline-block;
+    padding:10px 10px 10px 20px;
+    border-left:10px solid #edb727;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#statChart{
+    height: 500px;
+}
+.circumplexFood{
+    position: absolute;
+    text-align: center;
+}
+.circumplexFoodName{
+    font-size: 87.5%;
+    color:#a79797;
+    font-family: novaThin;
+}
+.circumplesFoodImg{
+    max-width: 40px;
+    border-radius: 50%;
+    border:2px dotted #e16c0e;
+}
+#recent-entries{
+    margin-top:50px;
+    margin-bottom: 20px;
+}
+.recentEntriesImg{
+    width:100%;
+    padding:5px;
+    background:#fff;
+    margin-bottom: 10px;
+}
+.recentEntriesDesc{
+    padding:5px;
+    background:#fff;
+}
+.recentFoodName{
+    font-size:100%;
+    color:#514f4b;
+    font-family: novaThin;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #abaaa7;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.recentEntriesDate{
+    font-size: 100%;
+    color:#99958b; 
+    font-family: novaThin;
+}
+
+
 @media screen and (max-width:993px){    
     #myCarousel{
         display: none;
