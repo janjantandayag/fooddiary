@@ -398,9 +398,7 @@ input, select {
     font-weight: bold;
     display: inline-block;
     padding: 10px 10px 10px 20px;
-    border-left: 2px solid #edb727;
-    border-right:2px solid #edb727;
-    border-top:2px solid #edb727;
+    border: 1px solid #edb727;
 }
 #statChart{
     height: 500px;
@@ -419,6 +417,11 @@ input, select {
     max-width: 40px;
     border-radius: 50%;
     border:2px dotted #e16c0e;
+}
+.circumplexFoodImg:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s all;
 }
 #recent-entries{
     margin-top:50px;
