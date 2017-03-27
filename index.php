@@ -1,3 +1,13 @@
+<?php
+	include ('database/Function.php');	
+	if(isset($_SESSION['loggedIn']) == true){
+		echo "<script>
+			alert('You are currently logged in! Please logged to used another account');
+			window.location = 'dashboard.php';
+		</script>";
+	}
+	else{
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +26,25 @@
 						</div>
 						<div class="form--body">
 							<div class="form">
-								<form action="dashboard.php">
-									<input type="text" class="form-control" placeholder="username" />
-									<input type="password" class="form-control" placeholder="password" />
-									<input type="submit" value="Log in" />
+								<form action="index.php" method="POST">
+									<input type="text" class="form-control" name='username' required placeholder="username" />
+									<input type="password" class="form-control" name='password' required placeholder="password" />
+									<input type="submit" name='submit' value="Log in" />
 								</form>
+								<?php
+									$db = new Database;
+									if(isset($_POST['submit'])){
+										if($db->isExist($_POST['username'], $_POST['password'])){
+											$db->login($_POST['username'], $_POST['password']);
+										}
+										else{ ?>
+								<div class="message">
+									<p></p>Incorrect username or password! Please try again!</p>
+								</div>
+								<?php		
+									}
+								}
+								?>
 							</div>
 						</div>
 						<div class="form--footer">
@@ -48,5 +72,9 @@
 			</section>
 		</div>
 	</div>	
+<script>
+	$('.message').fadeOut(3000);	
+</script>
 </body>
 </html>
+<?php } ?>
