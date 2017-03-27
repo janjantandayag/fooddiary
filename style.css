@@ -408,6 +408,16 @@ input, select {
     text-align: center;
     z-index: 1;
 }
+.circumplexFood:hover .circumplexFoodImg{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s all;
+}
+.circumplexFood:hover .circumplexFoodName{
+    font-size: 100%;
+    font-weight: bold;
+    transition: .5s all;
+}
 .circumplexFoodName{
     font-size: 87.5%;
     color:#a79797;
@@ -417,11 +427,6 @@ input, select {
     max-width: 40px;
     border-radius: 50%;
     border:2px dotted #e16c0e;
-}
-.circumplexFoodImg:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: .5s all;
 }
 #recent-entries{
     margin-top:50px;
