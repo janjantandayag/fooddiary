@@ -73,7 +73,7 @@
 						<h3 class="statTitle">Statistics </h3>
 					</div>
 					<div id="statChart">
-						
+						<?php $emotions = $db->getEmotion(); ?>				
 					</div>
 				</div>
 			</div>
@@ -134,7 +134,6 @@
 			</div>
 		</disv>
 	</section>
-	<?php var_dump($db->getData()); ?>
 <script>	
 Highcharts.chart('statChart', {
     chart: {
@@ -160,13 +159,14 @@ Highcharts.chart('statChart', {
             stacking: 'normal'
         }
     },
-    series: [{
-        name: 'Pleasure',
-        data: [90]
-    }, {
-        name: 'Excitement',
-        data: [10]
-    }]
+    series: [
+    <?php 
+    	foreach($emotions as $emotion){
+    		echo "{ name: '".strtoupper($emotion['emotion_name'])."',";
+    		echo "data: [".$db->getEmotionCount($emotion['emotion_id'])."]},";
+    	}
+    ?>
+    ]
 });
 </script>
 </body>

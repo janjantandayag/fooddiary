@@ -327,7 +327,6 @@ input, select {
 .circumplex-model{
     background:#ffffff;
     position: relative;
-    overflow: hidden;
 }
 
 .displayNone{
@@ -416,7 +415,12 @@ input, select {
 .circumplexFood:hover .circumplexFoodName{
     font-size: 100%;
     font-weight: bold;
+    padding-left:5px;
+    background:#efefef;
+    color:#000;
+    border-left:2px solid #000;
     transition: .5s all;
+
 }
 .circumplexFoodName{
     font-size: 87.5%;
@@ -426,7 +430,6 @@ input, select {
 .circumplexFoodImg{
     max-width: 40px;
     border-radius: 50%;
-    border:2px dotted #e16c0e;
 }
 #recent-entries{
     margin-top:50px;

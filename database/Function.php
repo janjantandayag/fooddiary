@@ -53,47 +53,52 @@ Class Database{
  		return $result;
 	}
 	public function getBorderColor($eid){
-
 		if($eid == 1){
-			$border = '3px dotted green';
+			$border = '3px solid green';
 		}
 		else if($eid == 2){	
-			$border = '3px dotted blue';
+			$border = '3px solid blue';
 		}
 		else if($eid == 3){			
-			$border = '3px dotted red';		
+			$border = '3px solid red';		
 		}
 		else if($eid == 4){
-			$border = '3px dotted orange';			
+			$border = '3px solid orange';			
 		}
 		else if($eid == 5){
-			$border = '3px dotted violet';			
+			$border = '3px solid violet';			
 		}
 		else if($eid == 6){
-			$border = '3px dotted yellow';			
+			$border = '3px solid yellow';			
 		}
 		else if($eid == 7){
-			$border = '3px dotted pink';				
+			$border = '3px solid pink';				
 		}
 		else if($eid == 8){
-			$border = '3px dotted black';			
+			$border = '3px solid black';			
 		}
 		return $border;
 	}
-	public function getData(){		
+	public function getEmotion(){
+		$stmt = $this->conn->prepare("SELECT * FROM emotions"); 
+ 		$stmt->execute(); 
+ 		$result = $stmt->fetchAll();
+ 		return $result;
+	}
+	public function getEmotionCount($emotionId){
 		$uid = $_SESSION['userId'];
-		$emotionId = [1,2,3,4,5,6,7,8];
-		$data = [];
-		foreach ($emotionId as $eid) {
-			$stmt = $this->conn->prepare("SELECT emotions.emotion_name,entries.user_id,entries.emotion_id FROM entries,emotions WHERE entries.user_id = $uid AND entries.emotion_id = $eid AND entries.emotion_id = emotions.emotion_id");
-	 		$stmt->execute();
-			$count = $stmt->rowCount();
- 			$result = $stmt->fetchAll();
- 			$data['data'] = $count;
+		$stmt = $this->conn->prepare("SELECT * FROM entries WHERE user_id = $uid AND emotion_id=$emotionId");
+ 		$stmt->execute();
+		$count = $stmt->rowCount();
+		if(!$count){
+			$count = 0;
 		}
-		return $data;
+		return $count;
 	}
 }
+
+	// $test = new Database;
+	// $test->getData();
 
 
 
