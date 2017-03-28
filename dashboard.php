@@ -89,48 +89,15 @@
 				</div>
 			</div>
 			<div class="row recent-container">
+				<?php foreach($db->getRecentEntries() as $recent) { ?>
 				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/bukayo.jpg" />
+					<img class="recentEntriesImg" src="database/displayImage.php?entryId=<?=$recent['entry_id'] ?>" />
 					<div class="recentEntriesDesc">
-						<p class="recentFoodName">bukayo</p>
-						<p class="recentEntriesDate">10/19/12</p>
+						<p class="recentFoodName"><?=$recent['entry_name'] ?> </p>
+						<p class="recentEntriesDate"><?=$recent['entry_date'] ?></p>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/champorado.jpg" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName">champorado</p>
-						<p class="recentEntriesDate">10/19/12</p>
-					</div>
-				</div>
-				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/dinuguan.jpg" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName">dinuguan</p>
-						<p class="recentEntriesDate">10/18/12</p>
-					</div>
-				</div>
-				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/halo-halo.jpg" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName">halo-halo</p>
-						<p class="recentEntriesDate">10/16/12</p>
-					</div>
-				</div>
-				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/kalderata.jpg" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName">kaldereta</p>
-						<p class="recentEntriesDate">10/15/12</p>
-					</div>
-				</div>
-				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="img/kare-kare.jpg" />
-					<div class="recentEntriesDesc">
-						<p class="recentFoodName">kare-kare</p>
-						<p class="recentEntriesDate">10/9/12</p>
-					</div>
-				</div>
+				<?php } ?>
 			</div>
 		</disv>
 	</section>

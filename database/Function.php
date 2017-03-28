@@ -95,6 +95,13 @@ Class Database{
 		}
 		return $count;
 	}
+	public function getRecentEntries(){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries WHERE user_id = $uid ORDER BY entry_date DESC LIMIT 6" ); 
+ 		$stmt->execute(); 
+ 		$result = $stmt->fetchAll();
+ 		return $result;
+	}
 }
 
 	// $test = new Database;
