@@ -98,6 +98,7 @@ input, select {
 
 @font-face {font-family: altCondensedSemibold;src: url(fonts/ProximaNovaAltcondensedSemibold.ttf);}
 @font-face {font-family: novaThin;src: url(fonts/ProximaNovaThin.ttf);}
+@font-face {font-family: semiBold;src: url(fonts/ProximaNovaSemibold.ttf);}
 
 #mainPage{
     background:#e8e7e7;
@@ -460,6 +461,130 @@ input, select {
     color:#99958b; 
     font-family: novaThin;
 }
+.addEntry-header--container{
+    background:#fff;    
+    text-align: center;
+    margin-top:30px;
+    padding:10px 0;
+}
+.addEntry--header{
+    font-size:187.5%;
+    color:#847f7f;
+    text-transform: uppercase;
+    font-family:semiBold;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #847f7f;
+}
+.addEntry-body--container{
+    background: #fff;
+    padding:20px 0;
+}
+.mealName{
+    color:#eeb10c;
+    font-size:187.5%;
+    text-transform: uppercase;
+    font-family: novaThin;
+    border:1px solid #eeb10c;
+    padding:10px 20px 10px 10px;
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    width:78%;
+}
+.addEntryIcon{
+    font-size: 315%;
+    background:#eeb10c;
+    color:#fff;
+    display: inline-block;
+    text-align: center;
+    padding:0px 10px;
+    text-transform: uppercase;
+    position: relative;
+    top:-8px;
+    width:20%;
+}
+.mealQuantity{
+    padding:5px;
+    background:#eeb10c;
+    font-size: 120%;
+    color:#fff;
+    display: inline-block;
+    width:25px;
+    height: 25px;
+    border-radius: 50%;
+}
+.mealQuantityContainer{    
+    position: relative;
+    top:-20px;
+    left:-10px;
+}
+.none{
+    display: none;
+}
+.show,.hideItem{
+    position: relative;
+    top:-10px;
+    display: block;
+    border: 1px solid #e6e1e1;
+    text-align: center;
+    font-size:100%;
+    color:#9a9a98;
+    padding:5px;
+    font-family: novaThin;
+}
+.hide-item{
+    margin-top:20px;
+}
+.entryName{
+    color:#847f7f;
+    font-size:100%;
+    font-family: semiBold;
+    text-transform: lowercase;
+    padding:5px 5px 5px 10px;
+    background:#f4f3ef;
+    border-left:2px solid #eeb10c;
+    margin-bottom: 20px;
+}
+.servingSize,.entryDate{
+    color:#847f7f;
+    font-family: novaThin;
+}
+.entryDate{
+    margin-bottom: 20px;
+}
+.entryContainer{
+    border-bottom: 1px solid #eeb10c;
+    margin:10px 0px;
+}
+.bodyImg{
+    width: 100%;
+}
+.mealContainer{
+    transition: .5s all;
+}
+.mealContainer:hover{
+    background:#f9f9f9;
+}
+@media(max-width:767px) and (min-width:425px){
+    .entryContainer{
+        max-width:400px;
+        margin:0 auto;
+    }
+}
+@media(max-width:1200px) and (min-width:992px){
+   .addEntryIcon {
+        padding: 0px 5px;
+        width:initial;
+        font-size:250%;
+        top:-6px;
+    }
+    .mealName{
+        width:initial;
+        padding: 0px 5px 0px 5px;
+        height:40px;
+    }
+}
 @media screen and (max-width:1200px){
     .circumplex-model{
         width: 400px;
@@ -534,6 +659,11 @@ input, select {
         height: 300px;
         width:100%;
     }
+    .mealContainer{
+        margin-bottom: 30px;
+        border-bottom: 20px solid #efefef;
+    }
+
 }
 
 
