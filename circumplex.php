@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Add Entry - How do you feel?</title>
 	<?php include ('include/links.php'); ?>
 </head>
 <body class="mainPage">
@@ -74,7 +74,7 @@
 						</div>
 					</div>
 					<div class="col-md-5">
-						<a href="#" class="circumplex--button">Next Step</a>
+						<a href="food-detail.php" class="circumplex--button">Next Step</a>
 					</div>
 				</div>
 			</div>
@@ -85,12 +85,11 @@
         {
             var coordX = ( e.pageX - $( this ).offset().left - ( $( this ).width()  * 0.5 ) );
             var coordY = -( e.pageY - $( this ).offset().top  - ( $( this ).height() * 0.5 ) );
-
-            var posX = e.pageX - $(this).offset().left;
-            var posY = e.pageY - $(this).offset().top;
+            var posX = (e.pageX - $(this).offset().left)/$(this).width()*100;
+            var posY = (e.pageY - $(this).offset().top)/$(this).width()*100;
             mark = document.getElementById('marker');
-          	mark.style.top = posY-25 + 'px';
-           	mark.style.left = posX-25 + 'px';      
+          	mark.style.top = posY-4.5+ '%';
+           	mark.style.left = posX-4.5 + '%';    
             var x = coordX.toFixed(1);
             var y = coordY.toFixed(1);	
             var angle = Math.atan2(y,x);
