@@ -606,6 +606,7 @@ input, select {
     width:600px;
     height:600px;
     position: relative;
+    overflow: hidden;
 }
 .circumplexModel:after{
     position: absolute;
@@ -643,7 +644,7 @@ input, select {
 .circumplexHeader,.circumplexBody{
     background:#fff;
 }
-.circumplexHeading{
+.circumplexHeading,.uploadPhotoHeader,.foodDetailsHeader{
     margin-top: 20px;
     font-size:156.25%;
     color:#6f6e6e;
@@ -653,6 +654,9 @@ input, select {
     padding:5px 10px 5px 10px;
     margin-bottom: 10px;
     background:#e8e7e7;
+}
+.uploadPhotoHeader,.foodDetailsHeader{
+    margin-bottom: 30px;
 }
 .circumplexHeading--helper{
     font-size: 112.5%;
@@ -697,6 +701,67 @@ input, select {
     position: relative;
     top:275px;
 }
+.foodDetailContainer{
+    background:#fff;
+    padding-bottom: 20px;
+    margin-top:20px;
+}
+.degreeHeader{
+    color:#eeb10c;
+    font-size: 125%;
+    font-family: semiBold;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    background:#f5f4f1;
+    border-top: 5px solid #eeb10c;
+    padding:5px 0;
+    margin-bottom: 10px;
+}
+.custom-file-select,.custom-file-take{
+    cursor: pointer;
+    padding:5px 0px 5px 5px;
+    font-family: novaThin;
+    font-size: 100%;
+    color:#ffffff;
+    margin-bottom:10px;
+    display: block;
+    background: #eeb10c;
+    width:100%;
+}
+input[type='file']{
+    display: none;
+}
+.imgSample{
+    width: 100%;
+}
+.labelFood{
+    text-transform: uppercase;
+    font-family: novaThin;
+    color:#6f6e6e;
+    font-size:112.5%;
+    margin-bottom: 10px;
+}
+.detailSubmit{
+    color:#fff;
+    font-size:120%;
+    font-family: semiBold;
+    text-transform: uppercase;
+    margin-top:25px;
+    background:#eeb10c;
+    padding:20px;
+    border:none;
+}
+
+
+
+
+
+
+
+
+
+
 @media(max-width:625px){
     .circumplexModel{
         width:300px;

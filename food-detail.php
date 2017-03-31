@@ -45,11 +45,90 @@
 				<div class="col-md-12">
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
-					<a href="circumplex.php"  class="breadcrumb-link">STEP 1</a>
+					<a href="circumplex.php"  class="breadcrumb-link">Breakfast: STEP 1</a>
 					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">STEP 2</a>
 				</div>
 			</div>
 		</div>
 	</section>
+	<div class="mainPageFoodDetail">
+		<div class="mainPageFoodDetailContainer">
+			<div class="container foodDetailContainer">
+				<div class="row">
+					<div class="col-md-6 uploadPhoto">
+						<h1 class="uploadPhotoHeader">Upload Photo</h1>
+						<div class="row">
+							<div class="col-md-6 degree45">
+								<h2 class="degreeHeader">45 degress photo</h2>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="file-photo" class="custom-file-take">
+										    <i class="fa fa-camera"></i> Take Photo
+										</label>
+										<input type="file" id="file-photo" accept="image/*" capture="camera" onchange="loadFile(event)">
+									</div>
+									<div class="col-md-6">
+											<label for="file-select" class="custom-file-select">
+										    <i class="fa fa-cloud-upload"></i> Select Photo
+										</label>
+										<input id="file-select" type="file" onchange="loadFile(event)"/>
+									</div>
+								</div>
+								<div class="imgContainer">
+									<img src="img/45deg.jpg" class="imgSample" />
+								</div>
+							</div>
+							<div class="col-md-6 degree45">
+								<h2 class="degreeHeader">90 degress photo</h2>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="file-photo" class="custom-file-take">
+										    <i class="fa fa-camera"></i> Take Photo
+										</label>
+										<input type="file" id="file-photo" accept="image/*" capture="camera" onchange="loadFile(event)">
+									</div>
+									<div class="col-md-6">
+											<label for="file-select" class="custom-file-select">
+										    <i class="fa fa-cloud-upload"></i> Select Photo
+										</label>
+										<input id="file-select" type="file" onchange="loadFile(event)"/>
+									</div>
+								</div>
+								<div class="imgContainer">
+									<img src="img/90deg.jpg" class="imgSample" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 foodDetails">						
+						<h1 class="foodDetailsHeader">Details</h1>
+						<div class="formContainer">
+							<form>
+								<div class="row">
+									<div class="col-md-6 col-xs-6">
+										<div class="form-group">
+									    	<label for="foodName" class="labelFood">Food Name</label>
+									    	<input type="text" class="form-control" id="foodName">
+									  	</div>
+									</div>
+									<div class="col-md-6 col-xs-6">
+										<div class="form-group">
+									    	<label for="servingSize" class="labelFood">Serving Size</label>
+									    	<input type="text" class="form-control" id="servingSize">
+									  	</div>
+									</div>
+								</div>
+							  	<div class="form-group">
+							    	<label for="description" class="labelFood">Description</label>
+							    	<textarea class="form-control" id="description"></textarea>
+							  	</div>
+							  	<input type="submit" class="detailSubmit" value="Add to Diary" />
+						 	</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
