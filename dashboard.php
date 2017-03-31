@@ -8,8 +8,7 @@
 <head>
 	<title>Dashboard</title>
 	<?php include ('include/links.php'); ?>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="highChart/highcharts.js"></script>
 </head>
 <body class="mainPage">
 	<header>

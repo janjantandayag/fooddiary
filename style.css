@@ -498,11 +498,15 @@ input, select {
     color:#fff;
     display: inline-block;
     text-align: center;
-    padding:0px 10px;
     text-transform: uppercase;
     position: relative;
     top:-8px;
     width:20%;
+}
+.addEntryIcon:hover{
+    background:#fff;
+    color:#eeb10c;
+    transition: .5s all;
 }
 .mealQuantity{
     padding:5px;
@@ -565,6 +569,162 @@ input, select {
 }
 .mealContainer:hover{
     background:#f9f9f9;
+}
+#breadcrumb{
+    margin-top:20px;
+}
+.breadcrumbContainer{
+    background:#fff;
+    padding:10px 0px;
+}
+.breadcrumb-link:first-child:before{
+    display: none;
+}
+.breadcrumb-link:before{
+    position: absolute;
+    display: inline-block;
+    content:'|';
+    font-family: novaThin;
+    left:-10px;
+    top:-3px;
+    font-size:150%;
+    color:#b5b4b2;
+}
+.breadcrumb-link{
+    position: relative;
+    margin-right:10px;
+    font-family: novaThin;
+    color:#b5b4b2;
+}
+.breadcrumb-link-active{
+    font-weight: bold;
+    color:#eeb10c;
+}
+.circumplexModel{
+    background:#fff;
+    border:2px solid #eeb10c;
+    width:600px;
+    height:600px;
+    position: relative;
+}
+.circumplexModel:after{
+    position: absolute;
+    content:"";
+    display: inline;
+    left: 50%;
+    top:0%;
+    height:100%;
+    background:#c6c0c0;
+    width:1px;
+}
+.circumplexModel:before{
+    position: absolute;
+    content:"";
+    display: inline;
+    top: 50%;
+    left:0%;
+    height:100%;
+    background:#c6c0c0;
+    width:100%;
+    height: 1px;
+}
+.circumplexModel:hover{
+    border:2px solid transparent;
+    background:#e8e7e7;
+    cursor: pointer;
+    transition: .5s all;
+}
+.circumplexModel .label{
+    font-size:112.5%;
+}
+.mainCircumplex{
+    margin-top:20px;
+}
+.circumplexHeader,.circumplexBody{
+    background:#fff;
+}
+.circumplexHeading{
+    margin-top: 20px;
+    font-size:156.25%;
+    color:#6f6e6e;
+    font-family: semiBold;
+    display: inline-block;
+    border-left:5px solid #eeb10c;
+    padding:5px 10px 5px 10px;
+    margin-bottom: 10px;
+    background:#e8e7e7;
+}
+.circumplexHeading--helper{
+    font-size: 112.5%;
+    color:#b8b0b0;
+    font-family: novaThin;
+    font-style:italic;
+    margin-bottom: 20px;
+}
+.circumplexBody{
+    padding-bottom: 20px;
+}
+.marker{
+    width:50px;
+    height: 50px;
+    border:10px dotted #eeb10c;
+    background:#fff;
+    position: absolute;
+    border-radius: 50%;
+    left:46%;
+    top:46%;
+    transition: all .5s;
+   -webkit-animation: spin 2s linear infinite;
+   animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.circumplex--button{
+    display: block;
+    color:#fff;
+    background:#eeb10c;
+    font-size:187.5%;
+    font-family: semiBold;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    position: relative;
+    top:275px;
+}
+@media(max-width:625px){
+    .circumplexModel{
+        width:300px;
+        height:300px;
+        margin:0 auto;
+    }
+    .marker{
+        width:30px;
+        height: 30px;
+        border-width: 5px;
+        left:45%;
+        top:44.8%;
+    }
+}
+@media(max-width:1199px) and (min-width:991px){
+    .circumplexModel{
+        width:500px;
+        height: 500px;
+    }
+    .marker{
+        left:45.2%;
+        top:45.2%;
+    }
+}
+@media(max-width:991px) and (min-width:625px){
+    .circumplexModel{
+        margin: 0 auto;
+    }
 }
 @media(max-width:767px) and (min-width:425px){
     .entryContainer{
@@ -632,6 +792,13 @@ input, select {
     .circumplex-model{
         width: 600px;
         height: 600px;
+    }
+    .circumplex--button{
+        top:0px;
+        margin-top: 40px;
+        width:100%;
+        margin-left:0px;
+        margin-right: 0px;
     }
 }
 @media screen and (max-width:768px){

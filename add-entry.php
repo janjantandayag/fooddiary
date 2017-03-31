@@ -8,8 +8,6 @@
 <head>
 	<title>Dashboard</title>
 	<?php include ('include/links.php'); ?>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body class="mainPage">
 	<header>
@@ -40,7 +38,17 @@
 				</div>
 			</div>
 		</div>
-	</header>
+	</header>	
+	<section id="breadcrumb">
+		<div class="container">
+			<div class="row breadcrumbContainer">
+				<div class="col-md-12">
+					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
+					<a href="#"  class="breadcrumb-link  breadcrumb-link-active"><span class="fa fa-plus-square-o"></span> add entry</a>
+				</div>
+			</div>
+		</div>
+	</section>
 	<section id="addEntry-header">
 		<div class="container">
 			<div class="row addEntry-header--container">
@@ -55,12 +63,12 @@
 			<div class="row addEntry-body--container">
 				<div class="col-md-3 col-sm-6 mealContainer">
 					<p class="mealName">Breakfast</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span>+</a>
+					<a href="circumplex.php" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
 					<div class="mealQuantityContainer">
 						<p class="mealQuantity">3</p>
 					</div>
 					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-plus">show</span></a>
+						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
 					</div>
 					<div class="entryContainer">
 						<div class="row">
@@ -99,17 +107,17 @@
 						</div>						
 					</div>
 					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-plus">hide entries</span></a>
+						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 mealContainer">
 					<p class="mealName">Lunch</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span>+</a>
+					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
 					<div class="mealQuantityContainer">
 						<p class="mealQuantity">2</p>
 					</div>
 					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-plus">show entries</span></a>
+						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
 					</div>
 					<div class="entryContainer">
 						<div class="row">
@@ -136,17 +144,17 @@
 						</div>						
 					</div>
 					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-plus">hide</span></a>
+						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 mealContainer">
 					<p class="mealName">Dinner</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span>+</a>
+					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
 					<div class="mealQuantityContainer">
 						<p class="mealQuantity">1</p>
 					</div>
 					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-plus">show entries</span></a>
+						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
 					</div>
 					<div class="entryContainer">
 						<div class="row">
@@ -161,20 +169,20 @@
 						</div>						
 					</div>
 					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-plus">hide entries</span></a>
+						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 mealContainer">
 					<p class="mealName">Snack</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span>+</a>
+					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
 					<div class="mealQuantityContainer">
 						<p class="mealQuantity">0</p>
 					</div>
 					<div class="show-container">
-						<a href="#" class="show"><span class="fa fa-plus">show entries</span></a>
+						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
 					</div>
 					<div class="hide-item none">
-						<a href="#" class="hideItem"><span class="fa fa-plus">hide entries</span></a>
+						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
 					</div>
 				</div>
 			</div>

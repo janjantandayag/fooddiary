@@ -5,4 +5,5 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="script.js"></script>
-<script src="https://use.fontawesome.com/0c7a3095b5.js"></script>
+<link rel="stylesheet" type="text/css" href="fontAwesome/css/font-awesome.min.css">
+<!-- <script src="https://use.fontawesome.com/0c7a3095b5.js"></script> -->
