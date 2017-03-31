@@ -644,7 +644,11 @@ input, select {
 .circumplexHeader,.circumplexBody{
     background:#fff;
 }
-.circumplexHeading,.uploadPhotoHeader,.foodDetailsHeader{
+.entryListContainer{
+    background: #fff;
+    margin-top:20px;
+}
+.circumplexHeading,.uploadPhotoHeader,.entryListHeader,.foodDetailsHeader{
     margin-top: 20px;
     font-size:156.25%;
     color:#6f6e6e;
@@ -655,7 +659,8 @@ input, select {
     margin-bottom: 10px;
     background:#e8e7e7;
 }
-.uploadPhotoHeader,.foodDetailsHeader{
+
+.uploadPhotoHeader,.foodDetailsHeader,.entryListHeader{
     margin-bottom: 30px;
 }
 .circumplexHeading--helper{
@@ -732,7 +737,7 @@ input, select {
 input[type='file']{
     display: none;
 }
-.imgSample{
+.imgPreview{
     width: 100%;
 }
 .labelFood{
@@ -751,6 +756,71 @@ input[type='file']{
     background:#eeb10c;
     padding:20px;
     border:none;
+}
+.photoPreview{
+    width:100%;
+}
+.photoPreview:last-child{
+    position: relative;
+    top:-3px;
+}
+.previewName{
+    color:#6f6e6e;
+    font-family: semiBold;
+    text-transform: uppercase;
+    font-size:125%;
+    display: block;
+    padding: 5px 5px 5px 10px;
+    background:#eceaea;
+    border-left:5px solid #6f6e6e;
+    margin-bottom: 20px;
+}
+.servingPreviewHeader,.addInfoHeader{
+    color:#servingPreviewHeader;
+    font-family: semiBold;
+    font-size: 112.5%;
+    color:#afafaf;
+    margin-bottom: 5px;
+}
+.addInfoHeader{
+    margin-top: 20px;
+}
+.servingBody,.addInfoBody{
+    font-size: 100%;
+    color:#6f6e6e;
+    font-family: novaThin;
+    padding-left:10px;
+}
+.addInfoContainer{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeb10c;
+}
+.removeButton{
+    font-family: semiBold;
+    color:#9f9c9c;
+    display: block;
+    text-align: center;
+    padding:10px;
+    border:1px solid #c8c3c3;
+    margin-top:20px;
+    font-size: 100%;
+}
+.entryListSubmitHeader{
+    text-align: center;
+    margin-top:25px;
+    margin-bottom: 10px;
+}
+.entryListSubmit{
+    display: inline-block;
+    padding:10px 20px;
+    color:#fff;
+    background:#eeb10c;
+    text-transform: uppercase;
+    font-family: semiBold;
+    text-align: center;
+}
+#entryListMain{
+    margin-bottom: 20px;
 }
 
 
@@ -784,6 +854,22 @@ input[type='file']{
     .marker{
         left:45.2%;
         top:45.2%;
+    }
+}
+@media(max-width:991px) and (min-width:320px){
+    .entryItemcontainer{
+        max-width:500px;
+        margin:20px auto 50px auto;
+        border-bottom: 5px solid #e6e3db;
+        padding-bottom: 50px;
+    }
+    .photoPreview{
+        display: inline-block;
+        max-width: 49%;
+    }
+    .photoPreview:last-child{
+        top:0px;
+        left:-1px;
     }
 }
 @media(max-width:991px) and (min-width:625px){
@@ -895,7 +981,16 @@ input[type='file']{
         margin-bottom: 30px;
         border-bottom: 20px solid #efefef;
     }
-
+}
+@media(max-width:990px) and (min-width:425px){
+    .imgPreview{
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+    }
+    .degree90{
+        margin-top:20px;
+    }
 }
 
 

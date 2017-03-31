@@ -61,13 +61,13 @@
 							<div class="col-md-6 degree45">
 								<h2 class="degreeHeader">45 degress photo</h2>
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-6 col-xs-6">
 										<label for="file-photo" class="custom-file-take">
 										    <i class="fa fa-camera"></i> Take Photo
 										</label>
 										<input type="file" id="file-photo" accept="image/*" capture="camera" onchange="loadFile(event)">
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 col-xs-6">
 											<label for="file-select" class="custom-file-select">
 										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
@@ -75,19 +75,19 @@
 									</div>
 								</div>
 								<div class="imgContainer">
-									<img src="img/45deg.jpg" class="imgSample" />
+									<img src="img/45deg.jpg" class="imgPreview" />
 								</div>
 							</div>
-							<div class="col-md-6 degree45">
+							<div class="col-md-6 degree90">
 								<h2 class="degreeHeader">90 degress photo</h2>
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-6 col-xs-6">
 										<label for="file-photo" class="custom-file-take">
 										    <i class="fa fa-camera"></i> Take Photo
 										</label>
 										<input type="file" id="file-photo" accept="image/*" capture="camera" onchange="loadFile(event)">
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 col-xs-6">
 											<label for="file-select" class="custom-file-select">
 										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
@@ -95,7 +95,7 @@
 									</div>
 								</div>
 								<div class="imgContainer">
-									<img src="img/90deg.jpg" class="imgSample" />
+									<img src="img/90deg.jpg" class="imgPreview" />
 								</div>
 							</div>
 						</div>
@@ -103,15 +103,15 @@
 					<div class="col-md-6 foodDetails">						
 						<h1 class="foodDetailsHeader">Details</h1>
 						<div class="formContainer">
-							<form>
+							<form method="POST" action="entry-list.php">
 								<div class="row">
-									<div class="col-md-6 col-xs-6">
+									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
 									    	<label for="foodName" class="labelFood">Food Name</label>
 									    	<input type="text" class="form-control" id="foodName">
 									  	</div>
 									</div>
-									<div class="col-md-6 col-xs-6">
+									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
 									    	<label for="servingSize" class="labelFood">Serving Size</label>
 									    	<input type="text" class="form-control" id="servingSize">
