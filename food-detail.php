@@ -59,7 +59,7 @@
 						<h1 class="uploadPhotoHeader">Upload Photo</h1>
 						<div class="row">
 							<div class="col-md-6 degree45">
-								<h2 class="degreeHeader">45 degress photo</h2>
+								<h2 class="degreeHeader">45 degree photo</h2>
 								<div class="row">
 									<div class="col-md-6 col-xs-6">
 										<label for="file-photo" class="custom-file-take">
@@ -79,7 +79,7 @@
 								</div>
 							</div>
 							<div class="col-md-6 degree90">
-								<h2 class="degreeHeader">90 degress photo</h2>
+								<h2 class="degreeHeader">90 degree photo</h2>
 								<div class="row">
 									<div class="col-md-6 col-xs-6">
 										<label for="file-photo" class="custom-file-take">

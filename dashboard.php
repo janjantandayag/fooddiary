@@ -57,13 +57,10 @@
 								$entries = $db->getEntries();
 								foreach($entries as $entry){ ?>						
 							<div class="circumplexFood" style="left:<?=$entry['xCoor']-4?>%;top:<?=$entry['yCoor']-4;?>%">
-								<h5 class="circumplexFoodName"><?=$entry['entry_name'];?></h5>
-								<img src="database/displayImage.php?entryId=<?=$entry['entry_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
+								<h5 class="circumplexFoodName"><?=$entry['food_name'];?></h5>
+								<img src="database/displayImage.php?itemId=<?=$entry['item_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
 							</div>
-								<?php
-
-								}
-							?>
+								<?php }	?>
 						</div>		
 					</div>
 				</div>
@@ -90,9 +87,9 @@
 			<div class="row recent-container">
 				<?php foreach($db->getRecentEntries() as $recent) { ?>
 				<div class="col-md-2 col-sm-4 recentContainer">
-					<img class="recentEntriesImg" src="database/displayImage.php?entryId=<?=$recent['entry_id'] ?>" />
+					<img class="recentEntriesImg" src="database/displayImage.php?itemId=<?=$recent['item_id'] ?>" />
 					<div class="recentEntriesDesc">
-						<p class="recentFoodName"><?=$recent['entry_name'] ?> </p>
+						<p class="recentFoodName"><?=$recent['food_name'] ?> </p>
 						<p class="recentEntriesDate"><?=$recent['entry_date'] ?></p>
 					</div>
 				</div>
@@ -129,7 +126,7 @@ Highcharts.chart('statChart', {
     <?php 
     	foreach($emotions as $emotion){
     		echo "{ name: '".strtoupper($emotion['emotion_name'])."',";
-    		echo "data: [".$db->getEmotionCount($emotion['emotion_id'])."]},";
+    		echo "data: [".$db->getEmotionCount($emotion['emotion_id'])."], color:'".$db->getBgColor($emotion['emotion_id'])."'},";
     	}
     ?>
     ]

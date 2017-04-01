@@ -83,18 +83,21 @@
 <script>
 	$( '#circumplexModel' ).click( function(e)
         {
+
             var coordX = ( e.pageX - $( this ).offset().left - ( $( this ).width()  * 0.5 ) );
             var coordY = -( e.pageY - $( this ).offset().top  - ( $( this ).height() * 0.5 ) );
+
             var posX = (e.pageX - $(this).offset().left)/$(this).width()*100;
             var posY = (e.pageY - $(this).offset().top)/$(this).width()*100;
+            
             mark = document.getElementById('marker');
           	mark.style.top = posY-4.5+ '%';
            	mark.style.left = posX-4.5 + '%';    
+
             var x = coordX.toFixed(1);
             var y = coordY.toFixed(1);	
             var angle = Math.atan2(y,x);
             var deg = angle * (180/Math.PI);
-            var radius = Math.sqrt(x * x + y * y);	
              function isNegative(degree){
 	            return degree = 360 + degree;
             }
@@ -138,32 +141,42 @@
             function degEmotion(deg){
             	/*FIRST QUADRANT*/
 	            if(deg>=0 && deg <= 45){
-	            	emotionName = 'PLEASURE';
+	            	emotionId = '1';
 	            }
 	            if(deg>=46 && deg <= 90){
-	            	emotionName = 'EXCITEMENT';
+	            	emotionId = '2';
 	            }
 	            // /*SECOND QUADRANT*/
 	            if(deg>=91 && deg <= 135){	            	
-	            	emotionName = 'AROUSAL';
+	            	emotionId = '3';
 	            }
 	            if(deg>=136 && deg <= 180){	            	
-	            	emotionName = 'DISTRESS';
+	            	emotionId = '4';
 	            }
 	            // /*THIRD QUADRANT*/
 	            if(deg >= 181 && deg <= 224 ){
-	            	emotionName = 'DISPLEASURE';
+	            	emotionId = '5';
 	            }
 	            if(deg >= 225  && deg <= 269){
-	            	emotionName = 'DEPRESSION';
+	            	emotionId = '6';
 	            }
 	            // /*FOURTH QUADRANT*/
 	            if(deg >=270 && deg <= 314){
-	            	emotionName = 'SLEEPINESS';
+	            	emotionId = '7';
 	            }
 	            if(deg >= 315 && deg <= 360){
-	            	emotionName = 'RELAXATION';
+	            	emotionId = '8';
 	            }
+	            /*
+				posX
+				posY
+				deg
+				emotionId
+	        	*/
+	        	$.ajax({
+					type: 'GET',
+					url: 'database/script-meal-1.php?posX='+Math.round(posX)+'&posY='+Math.round(posY)+'&deg='+Math.round(deg)+'&emotionId='+emotionId
+				});
             }
 
 

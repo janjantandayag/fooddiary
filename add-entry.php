@@ -1,12 +1,13 @@
 <?php
    	include('database/Function.php');
+   	$_SESSION['detail'] = [];
     $db = new Database;
     $db->isLogin();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Add Entry</title>
 	<?php include ('include/links.php'); ?>
 </head>
 <body class="mainPage">
@@ -61,132 +62,79 @@
 	<section id="addEntry-body">
 		<div class="container">
 			<div class="row addEntry-body--container">
+				<?php
+					$mealId=[1,2,3,4];
+					foreach($mealId as $id):
+				?>				
 				<div class="col-md-3 col-sm-6 mealContainer">
-					<p class="mealName">Breakfast</p>
-					<a href="circumplex.php" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
+					<p class="mealName"><?= $db->getMealName($id) ?></p>
+					<a href="circumplex.php"  onClick='storeMealType(<?=$id?>)' title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
 					<div class="mealQuantityContainer">
-						<p class="mealQuantity">3</p>
+						<p class="mealQuantity"><?= $db->getMealCount($id) ?></p>
 					</div>
-					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
-					</div>
-					<div class="entryContainer">
+					
+					<!-- <div class="show-container 
+					<?php					
+						// if(!($db->getMealCount($id))){
+						// 	echo 'arrow-none';
+						// }
+						// if($db->getMealCount($id)){
+						// 	echo 'arrow-display';
+						// }
+					?>
+					">
+						<a href="#" class="show showItem"><span class="fa fa-arrow-down"></span></a>
+					</div> -->
+
+					<?php if(!($db->getMealCount($id))): ?>
+						<div class="noEntry">No entry</div>
+					<?php
+					 	endif;
+						foreach($db->getMeals($id) as $meal):
+					?>
+					<div class="entryContainer" id="itemView-<?=$meal?>">
 						<div class="row">
 							<div class="col-md-4">
-								<img src="img/bukayo.jpg" class="bodyImg"/>
+								<img src="database/displayImage.php?itemId=<?=$meal ['item_id']; ?>" class="bodyImg"/>
 							</div>
 							<div class="col-md-8 ">
-								<h2 class="entryName">Bukayo</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:23:02</p>
+								<h2 class="entryName"><?= $meal['food_name']; ?></h2>
+								<p class="servingSize"><?= $meal['serving_size']; ?></p>
+								<p class="entryDate"><?= $meal['entry_date']; ?></p>
 							</div>
-						</div>						
-					</div>
-					<div class="entryContainer">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="img/halo-halo.jpg" class="bodyImg"/>
-							</div>
-							<div class="col-md-8 ">
-								<h2 class="entryName">halo-halo</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:25:02</p>
-							</div>
-						</div>						
-					</div>
-					<div class="entryContainer">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="img/kalderata.jpg" class="bodyImg"/>
-							</div>
-							<div class="col-md-8 ">
-								<h2 class="entryName">kaldereta</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:23:02</p>
-							</div>
-						</div>						
-					</div>
-					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
-					</div>
+						</div>				
+					</div>			
+					<?php endforeach; ?>		
+					<!-- <div class="hide-item  -->
+					<?php					
+						// if(!($db->getMealCount($id))){
+						// 	echo 'arrow-none';
+						// }
+						// if($db->getMealCount($id)){
+						// 	echo 'arrow-none';
+						// }
+					?>
+					<!-- "> -->
+						<!-- <a href="#" class="hideItem" id="hideItem"><span class="fa fa-arrow-up"></span></a>
+					</div> -->					
 				</div>
-				<div class="col-md-3 col-sm-6 mealContainer">
-					<p class="mealName">Lunch</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
-					<div class="mealQuantityContainer">
-						<p class="mealQuantity">2</p>
-					</div>
-					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
-					</div>
-					<div class="entryContainer">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="img/halo-halo.jpg" class="bodyImg"/>
-							</div>
-							<div class="col-md-8 ">
-								<h2 class="entryName">halo-halo</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:25:02</p>
-							</div>
-						</div>						
-					</div>
-					<div class="entryContainer">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="img/kalderata.jpg" class="bodyImg"/>
-							</div>
-							<div class="col-md-8 ">
-								<h2 class="entryName">kaldereta</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:23:02</p>
-							</div>
-						</div>						
-					</div>
-					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 mealContainer">
-					<p class="mealName">Dinner</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
-					<div class="mealQuantityContainer">
-						<p class="mealQuantity">1</p>
-					</div>
-					<div class="show-container none">
-						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
-					</div>
-					<div class="entryContainer">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="img/kalderata.jpg" class="bodyImg"/>
-							</div>
-							<div class="col-md-8 ">
-								<h2 class="entryName">kaldereta</h2>
-								<p class="servingSize">5 cups</p>
-								<p class="entryDate">10/12/17 7:23:02</p>
-							</div>
-						</div>						
-					</div>
-					<div class="hide-item">
-						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 mealContainer">
-					<p class="mealName">Snack</p>
-					<a href="#" title="Add Entry" class="addEntryIcon"><span class="fa fa-plus"></span></a>
-					<div class="mealQuantityContainer">
-						<p class="mealQuantity">0</p>
-					</div>
-					<div class="show-container">
-						<a href="#" class="show"><span class="fa fa-arrow-down"></span></a>
-					</div>
-					<div class="hide-item none">
-						<a href="#" class="hideItem"><span class="fa fa-arrow-up"></span></a>
-					</div>
-				</div>
+				<?php
+					endforeach;
+				?>
 			</div>
 		</div>
 	</section>
+<script>
+$("#showItem").click(function(){
+    $(".itemView").toggle();
+});
+
+function storeMealType(mealId){
+	$.ajax({
+		type: 'GET',
+		url: 'database/script-meal.php?mealId='+mealId
+	});
+}
+</script>
 </body>
 </html>
