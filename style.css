@@ -576,6 +576,15 @@ input, select {
     color:#ef4820;
     border:1px solid #ef4820;
 }
+.addMore{
+    font-size: 100%;
+    font-family: novaThin;
+    color:#959292;
+    border-bottom: 2px solid #eeb10c;
+    float:right;
+    margin-top:25px;
+    padding-bottom: 5px;
+}
 .bodyImg{
     width: 100%;
 }
@@ -871,7 +880,7 @@ input[type='file']{
         top:45.2%;
     }
 }
-@media(max-width:991px) and (min-width:320px){
+@media(max-width:991px) and (min-width:250px){
     .entryItemcontainer{
         max-width:500px;
         margin:20px auto 50px auto;

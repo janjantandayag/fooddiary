@@ -57,75 +57,39 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="entryListHeader">Entry List</h1>
+					<a href="food-detail.php" class="addMore">add more</a>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 entryItemcontainer">
+				<?php if(!$_SESSION['detail']['entry']) : ?>	
+					<div class="col-md-12 noEntryContainer">
+						<p class="noEntry">No entries found!</p>
+					</div>
+				<?php endif;?>
+				<?php $i=0; foreach($_SESSION['detail']['entry'] as $entry): ?>
+				<div class="col-md-4 entryItemcontainer" id="entryItemcontainer-<?=$i?>">
 					<div class="row">
 						<div class="col-md-6">
-							<img src="img/champorado.jpg" class="photoPreview"/>
-							<img src="img/bukayo.jpg" class="photoPreview"/>
+							<img src="data:image/jpeg;base64, <?php echo base64_encode($entry['deg45']); ?>" class="photoPreview"/>
+							<img src="data:image/jpeg;base64, <?php echo base64_encode($entry['deg45']); ?>" class="photoPreview"/>
 						</div>
 						<div class="col-md-6">
-							<h2 class="previewName">Bukayo</h2>
+							<h2 class="previewName"><?= $entry['name']; ?></h2>
 							<div class="servingPreviewContainer">
 								<h2 class="servingPreviewHeader">Serving Size: </h2>
-								<p class="servingBody">5 teaspoon</p>
+								<p class="servingBody"><?= $entry['serving']; ?></p>
 							</div>
 							<div class="addInfoContainer">
 								<h2 class="addInfoHeader">Additional Info: </h2>
-								<p class="addInfoBody">Masarap ito!</p>
+								<p class="addInfoBody"><?= $entry['description']; ?></p>
 							</div>
 							<div class="removeButtonContainer">
-								<a href="#" class="removeButton">remove item</a>
+								<a href="#" class="removeButton" onclick="removeEntry(<?= $i ?>)" >remove item</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 entryItemcontainer">
-					<div class="row">
-						<div class="col-md-6">
-							<img src="img/champorado.jpg" class="photoPreview"/>
-							<img src="img/bukayo.jpg" class="photoPreview"/>
-						</div>
-						<div class="col-md-6">
-							<h2 class="previewName">Bukayo</h2>
-							<div class="servingPreviewContainer">
-								<h2 class="servingPreviewHeader">Serving Size: </h2>
-								<p class="servingBody">5 teaspoon</p>
-							</div>
-							<div class="addInfoContainer">
-								<h2 class="addInfoHeader">Additional Info: </h2>
-								<p class="addInfoBody">Masarap ito!</p>
-							</div>
-							<div class="removeButtonContainer">
-								<a href="#" class="removeButton">remove item</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 entryItemcontainer">
-					<div class="row">
-						<div class="col-md-6">
-							<img src="img/champorado.jpg" class="photoPreview"/>
-							<img src="img/bukayo.jpg" class="photoPreview"/>
-						</div>
-						<div class="col-md-6">
-							<h2 class="previewName">Bukayo</h2>
-							<div class="servingPreviewContainer">
-								<h2 class="servingPreviewHeader">Serving Size: </h2>
-								<p class="servingBody">5 teaspoon</p>
-							</div>
-							<div class="addInfoContainer">
-								<h2 class="addInfoHeader">Additional Info: </h2>
-								<p class="addInfoBody">Masarap ito!</p>
-							</div>
-							<div class="removeButtonContainer">
-								<a href="#" class="removeButton">remove item</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php $i++;endforeach; ?>
 			</div>
 			<div class="row">
 				<div class="col-md-12 entryListSubmitHeader">
@@ -134,5 +98,15 @@
 			</div>
 		</div>
 	</section>
+<script>
+	function removeEntry(id){
+	 	if(confirm('Are you sure you want to delete?')){
+			window.location.href='database/deleteEntry.php?id='+id;
+        }
+        else{
+            return false;
+        }
+	}
+</script>
 </body>
 </html>
