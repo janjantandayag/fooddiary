@@ -47,7 +47,7 @@
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
 					<a href="circumplex.php"  class="breadcrumb-link">Breakfast: STEP 1</a>
 					<a href="food-detail.php"  class="breadcrumb-link">STEP 2</a>
-					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">Entry List</a>
+					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">Review</a>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 entryListSubmitHeader">
-					<a href="#" class="entryListSubmit">submit</a>
+					<a href="javascript:void(0)" onClick="addDiary()" class="entryListSubmit">submit</a>
 				</div>
 			</div>
 		</div>
@@ -102,6 +102,14 @@
 	function removeEntry(id){
 	 	if(confirm('Are you sure you want to delete?')){
 			window.location.href='database/deleteEntry.php?id='+id;
+        }
+        else{
+            return false;
+        }
+	}
+	function addDiary(){
+		if(confirm('Are you sure you want to submit?')){			
+			window.location.href= 'database/add-diary.php';
         }
         else{
             return false;

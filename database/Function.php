@@ -137,7 +137,7 @@ Class Database{
 	}
 	public function getMealCount($id){
 		$uid = $_SESSION['userId'];
-		$date = date("Y-m-d",time() + 43200);
+		$date = date("Y-m-d",time() + 23000);
 		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date'" ); 
 		$stmt->execute();
 		$count = $stmt->rowCount();
@@ -145,7 +145,7 @@ Class Database{
 	}
 	public function getMeals($id){
 		$uid = $_SESSION['userId'];
-		$date = date("Y-m-d",time() + 43200);
+		$date = date("Y-m-d",time() + 23000);
 		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date' ORDER BY entry_date ASC"  ); 
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();

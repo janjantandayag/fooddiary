@@ -1,6 +1,10 @@
 <?php
 	session_start();
-	var_dump($_SESSION['detail']['entry']);
+	// var_dump($_SESSION['detail']);
+	foreach($_SESSION['detail']['entry'] as $entry){
+		echo $entry['name'];
+	}
+	// var_dump($_SESSION['detail']['entry']);
 	// var_dump($_SESSION['detail']);
 
 
