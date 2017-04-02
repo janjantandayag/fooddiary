@@ -45,9 +45,7 @@
 				<div class="col-md-12">
 					<a href="dashboard.php" class="breadcrumb-link"><span class="fa fa-dashboard"></span> dashboard</a>
 					<a href="add-entry.php"  class="breadcrumb-link"><span class="fa fa-plus-square-o"></span> add entry</a>
-					<a href="circumplex.php"  class="breadcrumb-link">Breakfast: STEP 1</a>
-					<a href="food-detail.php"  class="breadcrumb-link">STEP 2</a>
-					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">Review</a>
+					<a href="#"  class="breadcrumb-link  breadcrumb-link-active">Review List</a>
 				</div>
 			</div>
 		</div>

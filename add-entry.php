@@ -3,6 +3,24 @@
    	$_SESSION['detail'] = [];
     $db = new Database;
     $db->isLogin();
+    if(isset($_GET['date'])){
+    	$_SESSION['date'] = $_GET['date'];
+    	if($_SESSION['date']==date("Y-m-d",time() + 23000)){ 			
+    		$_SESSION['date'] = date("Y-m-d H:m:s",time() + 23000);
+    		$_SESSION['throwdate'] = date("Y-m-d",time() + 23000);
+    		$_SESSION['echodate'] = 'TODAY';
+    	}
+    	else{
+    		$_SESSION['date'] = $_GET['date'];
+    		$_SESSION['throwdate'] = $_GET['date'];
+    		$_SESSION['echodate'] = date("M d, Y",strtotime($_GET['date']));
+    	}
+    }
+    else{
+    	$_SESSION['date'] = date("Y-m-d H:m:s",time() + 23000);
+		$_SESSION['throwdate'] = date("Y-m-d",time() + 23000);
+ 		$_SESSION['echodate'] = 'TODAY';
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +72,7 @@
 		<div class="container">
 			<div class="row addEntry-header--container">
 				<div class="col-md-12">
-					<h3 class="addEntry--header">Today</h3>
+					<h3 class="addEntry--header"><?= $_SESSION['echodate'] ?></h3>
 				</div>
 			</div>
 		</div>
@@ -72,20 +90,6 @@
 					<div class="mealQuantityContainer">
 						<p class="mealQuantity"><?= $db->getMealCount($id) ?></p>
 					</div>
-					
-					<!-- <div class="show-container 
-					<?php					
-						// if(!($db->getMealCount($id))){
-						// 	echo 'arrow-none';
-						// }
-						// if($db->getMealCount($id)){
-						// 	echo 'arrow-display';
-						// }
-					?>
-					">
-						<a href="#" class="show showItem"><span class="fa fa-arrow-down"></span></a>
-					</div> -->
-
 					<?php if(!($db->getMealCount($id))): ?>
 						<div class="noEntry">No entry</div>
 					<?php
@@ -99,8 +103,16 @@
 							</div>
 							<div class="col-md-8 ">
 								<h2 class="entryName"><?= $meal['food_name']; ?></h2>
-								<p class="servingSize"><?= $meal['serving_size']; ?></p>
-								<p class="entryDate"><?= $meal['entry_date']; ?></p>
+								<p class="servingSize"><span class="fa fa-cutlery" style="margin-right:5px"></span> <?= $meal['serving_size']; ?></p>
+								<p class="entryDate"><span class="fa fa-clock-o" style="margin-right:5px"></span>
+									<?php 
+										$date = strtotime($meal['entry_date']);
+										$dateFormatted = date('h:i:s A',$date);
+										echo $dateFormatted;
+									?>
+
+
+								</p>
 							</div>
 						</div>				
 					</div>			

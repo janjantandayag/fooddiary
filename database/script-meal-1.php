@@ -4,4 +4,4 @@
 	$_SESSION['detail']['posY'] = $_GET['posY'];
 	$_SESSION['detail']['deg'] = $_GET['deg'];
 	$_SESSION['detail']['emotionId'] = $_GET['emotionId'];
-	$_SESSION['detail']['date'] = date("Y-m-d H:m:s",time() + 23000);
+	$_SESSION['detail']['date'] = $_SESSION['date'];

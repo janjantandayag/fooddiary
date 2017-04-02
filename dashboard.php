@@ -43,6 +43,30 @@
 	<section id="visualization">
 		<div class="container">
 			<div class="row">
+				<div class="col-md-6 mealCountContainer">
+					<div class="stat-header">
+						<h3 class="mealHeader">Total Food Intake By Meal</h3>
+					</div>
+					<?php 
+						$ids = [1,2,3,4];
+						foreach($ids as $id):
+					?>
+					<div class="mealEntryContainer">
+						<p class="mealLabelName"><?= $db->getMealName($id); ?></p>
+						<div class="entryCountContainer">
+							<p class="entryCount"><?= $db->countTotalEntries($id); ?></p>
+							<p class="entryLevel">entries</p>
+						</div>
+					</div>
+					<?php endforeach; ?>
+					<div class="totalCountContainer">
+						<p class="totalCount">Total</p>
+						<div class="entryCountContainer">
+							<p class="totalEntryCount"><?= $db->getTotalEntry(); ?></p>
+							<p class="totalLabel">entries</p>
+						</div>
+					</div>
+				</div>
 				<div class="col-md-6 circumplexContainer">
 					<div class="circumplex-header">
 						<h3 class="circumplexTitle">Food Distribution (Circumplex Model)</h3>
@@ -56,7 +80,7 @@
 							<?php
 								$entries = $db->getEntries();
 								foreach($entries as $entry){ ?>						
-							<div class="circumplexFood" style="left:<?=$entry['xCoor']-4?>%;top:<?=$entry['yCoor']-4;?>%">
+							<div class="circumplexFood" style="left:<?=$entry['xCoor']-5;?>%;top:<?=$entry['yCoor']-5;?>%">
 								<h5 class="circumplexFoodName"><?=$entry['food_name'];?></h5>
 								<img src="database/displayImage.php?itemId=<?=$entry['item_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
 							</div>
@@ -64,11 +88,25 @@
 						</div>		
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
+	<section id="visualization">
+		<div class="container">
+			<div class="row">
 				<div class="col-md-6 statContainer">
 					<div class="stat-header">
-						<h3 class="statTitle">Statistics </h3>
+						<!-- <h3 class="statTitle">Statistics </h3> -->
 					</div>
 					<div id="statChart">
+						<?php $emotions = $db->getEmotion(); ?>				
+					</div>
+				</div>
+				<div class="col-md-6 statContainer">
+					<div class="stat-header">
+						<!-- <h3 class="statTitle">Statistics </h3> -->
+					</div>
+					<div id="statChartByMeal">
 						<?php $emotions = $db->getEmotion(); ?>				
 					</div>
 				</div>
@@ -86,11 +124,12 @@
 			</div>
 			<div class="row recent-container">
 				<?php foreach($db->getRecentEntries() as $recent) { ?>
-				<div class="col-md-2 col-sm-4 recentContainer">
+				<div class="col-md-3 col-sm-6 recentContainer">
 					<img class="recentEntriesImg" src="database/displayImage.php?itemId=<?=$recent['item_id'] ?>" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName"><?=$recent['food_name'] ?> </p>
-						<p class="recentEntriesDate"><?=$recent['entry_date'] ?></p>
+						<p class="recentEntriesDate"><span style="margin-right:5px" class="fa fa-calendar-o"></span><?=$recent['entry_date'] ?></p>
+						<p class="recentServing"><span style="margin-right:5px" class="fa fa-cutlery"></span><?=$recent['serving_size'] ?> </p>
 					</div>
 				</div>
 				<?php } ?>
@@ -127,6 +166,44 @@ Highcharts.chart('statChart', {
     	foreach($emotions as $emotion){
     		echo "{ name: '".strtoupper($emotion['emotion_name'])."',";
     		echo "data: [".$db->getEmotionCount($emotion['emotion_id'])."], color:'".$db->getBgColor($emotion['emotion_id'])."'},";
+    	}
+    ?>
+    ]
+});
+Highcharts.chart('statChartByMeal', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Food Intake By Meal Per Emotion'
+    },
+    xAxis: {
+        categories: ['Breakfast','Lunch','Dinner','Snack']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total Food Intake'
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series: [
+    <?php 
+    	$mids = [1,2,3,4];
+    	foreach($emotions as $emotion){
+    		echo "{ name: '".strtoupper($emotion['emotion_name'])."',";
+    		echo "data: [";
+    		foreach($mids as $mid){
+    		echo $db->getValue($emotion['emotion_id'],$mid).',';
+    		}
+    		echo "], color:'".$db->getBgColor($emotion['emotion_id'])."'},";
     	}
     ?>
     ]

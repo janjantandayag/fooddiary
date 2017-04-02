@@ -326,7 +326,9 @@ input, select {
     border-bottom: 2px solid #000;
 }
 .circumplex-model{
-    background:#ffffff;
+    background: url(img/circumplex-bg.jpg) no-repeat center center rgba(0,0,0,.1);
+
+    background-size: cover;
     position: relative;
 }
 
@@ -390,7 +392,7 @@ input, select {
 #visualization{
     margin-top:20px;
 }
-.circumplexTitle,.statTitle,.recentEntriesHeader{
+.circumplexTitle,.statTitle,.recentEntriesHeader,.mealHeader{
     background: #ffffff;
     color: #edb727;
     font-family: novaThin;
@@ -402,6 +404,12 @@ input, select {
 }
 #statChart{
     height: 500px;
+}
+.mealCountContainer{
+    margin-bottom: 20px;
+}
+.mealHeader{
+    margin-bottom: 20px;
 }
 .circumplexFood{
     position: absolute;
@@ -442,21 +450,29 @@ input, select {
     width:100%;
     padding:5px;
     background:#fff;
-    margin-bottom: 10px;
 }
 .recentEntriesDesc{
     padding:5px;
     background:#fff;
+    position: relative;
+    top:-2px;
 }
 .recentFoodName{
     font-size:100%;
     color:#514f4b;
-    font-family: novaThin;
+    font-family: semiBold;
     padding-bottom: 5px;
     border-bottom: 1px solid #abaaa7;
     margin-bottom: 5px;
     font-weight: bold;
     text-transform: uppercase;
+}
+.recentServing{
+    font-size:100%;
+    color:#99958b;
+    font-family: novaThin;
+    text-transform: uppercase;
+    margin-top:10px;
 }
 .recentEntriesDate{
     font-size: 100%;
@@ -625,7 +641,8 @@ input, select {
     color:#eeb10c;
 }
 .circumplexModel{
-    background:#fff;
+    background:url(img/circumplex-bg.jpg) no-repeat center center;
+    background-size:cover;
     border:2px solid #eeb10c;
     width:600px;
     height:600px;
@@ -655,7 +672,6 @@ input, select {
 }
 .circumplexModel:hover{
     border:2px solid transparent;
-    background:#e8e7e7;
     cursor: pointer;
     transition: .5s all;
 }
@@ -709,6 +725,68 @@ input, select {
     transition: all .5s;
    -webkit-animation: spin 2s linear infinite;
    animation: spin 2s linear infinite;
+}
+.mealEntryContainer{
+    background:#fff;
+    margin-top:10px;
+}
+.totalCountContainer{
+    background:#eeb10c;
+    margin-top:10px;
+}
+.mealLabelName{
+    font-size:187.5%;
+    color:#eeb10c;
+    font-family: novaThin;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eeb10c;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top:20px;
+    margin-left:20px;
+}
+.totalCount{
+    font-size:200%;
+    color:#fff;
+    font-family: semiBold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top:20px;
+    margin-left:20px;
+}
+.entryCountContainer{
+    float:right;
+    padding:20px;
+    text-align: center;
+}
+.mealEntryContainer:after,.totalCountContainer:after{
+    display: block;
+    content:'';
+    clear:both;
+}
+.entryCount{
+    color:#eeb10c;
+    font-size:280%;
+    font-family: novaThin;
+}
+.totalEntryCount{
+    color:#fff;
+    font-size:300%;
+    font-family: semiBold;
+}
+.totalLabel{
+    color:#fff;
+    font-size:125%;
+    font-family: semiBold;
+    text-transform: uppercase;
+}
+.entryLevel{
+    color:#e8e7e7;
+    font-size:125%;
+    font-family: semiBold;
+    text-transform: uppercase;
 }
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -846,6 +924,25 @@ input[type='file']{
 #entryListMain{
     margin-bottom: 20px;
 }
+.archive-bodyContainer{
+    margin-top:20px;
+    background-color: #fff;
+    padding:20px 0;
+    margin-bottom: 20px;
+}
+.fc-time{
+    display: none;
+}
+.fc-title{
+    font-family: semiBold;
+    font-size:200%;
+}
+.fc-content{
+    text-align: center;
+}
+.fc-state-highlight{
+    background:green;
+}
 
 
 
@@ -853,9 +950,25 @@ input[type='file']{
 
 
 
-
-
-
+@media(max-width:990px){
+    .fc-title{
+        font-size: 110%;
+    }
+}
+@media(max-width: 330px){
+    .entryCount{
+        font-size:280%;
+        transition: 1s all;
+    }
+    .entryLevel{
+        font-size:100%;
+        transition: 1s all;
+    }
+    .mealLabelName{
+        font-size: 100%;
+        transition: 1s all;
+    }
+}
 @media(max-width:625px){
     .circumplexModel{
         width:300px;

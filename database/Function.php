@@ -124,7 +124,7 @@ Class Database{
 	}
 	public function getRecentEntries(){
 		$uid = $_SESSION['userId'];
-		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND item.entry_id=entries.entry_id ORDER BY entry_date DESC LIMIT 6" ); 
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND item.entry_id=entries.entry_id ORDER BY entry_date DESC LIMIT 4" ); 
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();
  		return $result;
@@ -137,16 +137,60 @@ Class Database{
 	}
 	public function getMealCount($id){
 		$uid = $_SESSION['userId'];
-		$date = date("Y-m-d",time() + 23000);
+		$date = $_SESSION['throwdate'];
 		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date'" ); 
+		$stmt->execute();
+		$count = $stmt->rowCount();
+		return $count;
+	}
+	public function getCountDates($date){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date'" ); 
 		$stmt->execute();
 		$count = $stmt->rowCount();
 		return $count;
 	}
 	public function getMeals($id){
 		$uid = $_SESSION['userId'];
-		$date = date("Y-m-d",time() + 23000);
-		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date' ORDER BY entry_date ASC"  ); 
+		$date = $_SESSION['throwdate'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date' ORDER BY entry_date DESC"  ); 
+ 		$stmt->execute(); 
+ 		$result = $stmt->fetchAll();
+ 		return $result;
+	}
+	public function countTotalEntries($id){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND meal_id=$id AND item.entry_id = entries.entry_id");
+ 		$stmt->execute();
+		$count = $stmt->rowCount();
+		if(!$count){
+			$count = 0;
+		}
+		return $count;
+	}
+	public function getvalue($eid,$mid){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND meal_id=$mid  AND emotion_id=$eid AND item.entry_id = entries.entry_id");
+ 		$stmt->execute();
+		$count = $stmt->rowCount();
+		if(!$count){
+			$count = 0;
+		}
+		return $count;
+	}
+	public function getTotalEntry(){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND item.entry_id = entries.entry_id");
+ 		$stmt->execute();
+		$count = $stmt->rowCount();
+		if(!$count){
+			$count = 0;
+		}
+		return $count;
+	}
+	public function getDates(){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT DISTINCT date(entry_date) as entryDate FROM entries WHERE user_id=$uid"); 
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();
  		return $result;
