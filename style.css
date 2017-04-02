@@ -290,7 +290,10 @@ input, select {
     font-weight: bold;
 }
 #mobile{
-    z-index: 3;
+    z-index: 2343;
+}
+.fc-right{
+    z-index: -1123;
 }
 #mobile li{
     list-style: none;
@@ -608,7 +611,7 @@ input, select {
     transition: .5s all;
 }
 .mealContainer:hover{
-    background:#f9f9f9;
+    background:#e6e4e4;
 }
 #breadcrumb{
     margin-top:20px;
@@ -952,7 +955,7 @@ input[type='file']{
 
 @media(max-width:990px){
     .fc-title{
-        font-size: 110%;
+        font-size: 100%;
     }
 }
 @media(max-width: 330px){

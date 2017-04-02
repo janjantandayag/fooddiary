@@ -20,7 +20,7 @@
 		$insertItem = mysqli_query($conn, "INSERT INTO item(entry_id,food_name,food_description,serving_size,45deg,90deg) VALUE($entryId,'$foodName','$description','$serving','$deg45','$deg90')");
 	}
 
-	echo "<script>alert('Successfully added!');window.location.href='../add-entry.php';</script>";
+	echo "<script>alert('Successfully added!');window.location.href='../archive.php';</script>";
 
 
 
