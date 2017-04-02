@@ -1,6 +1,6 @@
 <?php	
 session_start();
-Class Database{
+Class Database {
 	public $servername = 'localhost';
 	public $dbname = 'diary';
 	public $password = '';
@@ -195,6 +195,20 @@ Class Database{
  		$result = $stmt->fetchAll();
  		return $result;
 	}
+	public function signUp($firstName,$lastName,$gender,$birthDate,$username,$password){
+		$stmt = $this->conn->prepare("INSERT INTO users(first_name,last_name,gender,date_of_birth,username,password) VALUES('$firstName','$lastName','$gender','$birthDate','$username',md5('$password'))");
+ 		$stmt->execute();
+ 		$id = $this->conn->lastInsertId();
+		$_SESSION['loggedIn'] =  true;
+		$_SESSION['userId'] = $id;
+		$_SESSION['name'] = $firstName;
+		header("location: ../dashboard.php");
+	}
 }
+
+$db = new Database;
+if(isset($_POST['signUp'])){
+		$db->signUp($_POST['firstName'],$_POST['lastName'],$_POST['gender'],$_POST['birthDate'],$_POST['username'],$_POST['password']);
+	}
 
 

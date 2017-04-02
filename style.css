@@ -587,6 +587,10 @@ input, select {
     border-bottom: 1px solid #eeb10c;
     margin:10px 0px;
 }
+.entryContainer:hover{    
+    background:#f3f1f1;
+    transition: .5s all;
+}
 .noEntry{
     text-align: center;
     text-transform: uppercase;
@@ -611,7 +615,6 @@ input, select {
     transition: .5s all;
 }
 .mealContainer:hover{
-    background:#e6e4e4;
 }
 #breadcrumb{
     margin-top:20px;
@@ -946,13 +949,35 @@ input[type='file']{
 .fc-state-highlight{
     background:green;
 }
-
-
-
-
-
-
-
+.marginTop{
+    margin-top:40px;
+}
+#signUpForm label{
+    font-family: novaThin;
+    font-size: 100%;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+#signUpForm input,#signUpForm select{
+    margin-bottom: 25px;
+}
+#signUpButton{
+    border:none;
+    padding:10px;
+    margin-top:20px;
+    font-size:120%;
+    font-family: novaThin;
+    color:#fff;
+    text-transform: uppercase;
+    background:#eeb10c;
+}
+.modal-title{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: semiBold;
+    font-size:120%;
+}
 @media(max-width:990px){
     .fc-title{
         font-size: 100%;

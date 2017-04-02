@@ -110,8 +110,6 @@
 										$dateFormatted = date('h:i:s A',$date);
 										echo $dateFormatted;
 									?>
-
-
 								</p>
 							</div>
 						</div>				

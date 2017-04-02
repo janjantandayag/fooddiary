@@ -48,7 +48,7 @@
 							</div>
 						</div>
 						<div class="form--footer">
-							<a href="#">Create an account</a>
+							<a href="#" data-toggle="modal" data-target="#myModal">Create an account</a>
 						</div>
 					</div>
 				</div>
@@ -72,6 +72,56 @@
 			</section>
 		</div>
 	</div>	
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+      	<form id="signUpForm" method="POST" action="database/Function.php">
+      		<div class="row marginTop">
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="firstName">First Name</label>
+		    		<input type="text" class="form-control" name="firstName" id="firstName">
+		    	</div>
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="lastName">Last Name</label>
+		    		<input type="text" class="form-control" name="lastName" id="lastName">
+		    	</div>
+	    	</div>
+	    	<div class="row marginTop">
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="gender">Gender</label>
+		    		<select id="gender" name="gender" class="form-control">
+		    			<option value="male">Male</option>
+		    			<option value="female">Female</option>
+		    		</select>
+		    	</div>
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="birthDate">Age of Birth</label>
+		    		<input type="date" name="birthDate" class="form-control" id="birthDate">
+		    	</div>
+	    	</div>
+	    	<div class="row marginTop">
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="username">Username</label>
+		      		<input type="text" class="form-control" id="username" name="username"/>
+		    	</div>
+      			<div class="col-md-6 col-sm-6">
+		      		<label for="password">Password</label>
+		    		<input type="password" name="password" class="form-control" id="password">
+		    	</div>
+	    	</div>
+	    	<input type="submit" name="signUp" id="signUpButton" value="Sign up"/>
+      	</form>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 	$('.message').fadeOut(3000);	
 </script>
