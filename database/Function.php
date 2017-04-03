@@ -179,7 +179,13 @@ Class Database {
 		$uid = $_SESSION['userId'];
 		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date'" ); 
 		$stmt->execute();
-		$count = $stmt->rowCount();
+		$preCount = $stmt->rowCount();
+		if($count = 1){
+			$count = $preCount.' entry';
+		}
+		if($count > 1){
+			$count = $preCount.' entries';
+		}
 		return $count;
 	}
 	public function getMeals($id){

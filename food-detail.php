@@ -1,7 +1,11 @@
 <?php
    	include('database/Function.php');
     $db = new Database;
-    $db->isLogin();
+    $db->isLogin();    
+    if(!isset($_SESSION['detail']['mealType'])){
+    	echo "<script>alert('Oops! Please select meal type first!')</script>";
+    	echo "<script>window.location.href='add-entry.php'</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html>

@@ -106,7 +106,7 @@
 	    	foreach($db->getDates() as $date): 
         ?>
             {
-              title: '<?= $db->getCountDates($date['entryDate']); ?> entries',
+              title: '<?= $db->getCountDates($date['entryDate']); ?>',
               start: '<?= date('Y',strtotime($date['entryDate'])) ?>,<?= date('m',strtotime($date['entryDate'])) ?>,<?= date('d',strtotime($date['entryDate'])) ?>',
               backgroundColor: "#eeb10c", //red
               borderColor: "#eeb10c", //red
