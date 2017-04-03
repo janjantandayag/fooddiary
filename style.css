@@ -588,10 +588,15 @@ input, select {
 .entryContainer{
     border-bottom: 1px solid #eeb10c;
     margin:10px 0px;
+    overflow:hidden;
 }
 .entryContainer:hover{    
     background:#f3f1f1;
     transition: .5s all;
+}
+.entryContainer:hover img{
+    transform: scale(1.1);
+    transition: 1s all;
 }
 .noEntry{
     text-align: center;
@@ -1044,7 +1049,7 @@ input[type='file']{
     font-family: novaThin;
     margin-right:10px;
     padding-left:5px;
-    border-left:5px solid #edb727;
+    border-left:5px solid #a0a0a0;
 }
 .documentationBody{
     background: #e8e7e7;
@@ -1179,6 +1184,11 @@ input[type='file']{
         height:40px;
     }
 }
+@media(max-width:425px){
+    .selectPhoto45, .selectPhoto90{
+        display: none;
+    }
+}
 @media screen and (max-width:1200px){
     .circumplex-model{
         width: 400px;
@@ -1296,6 +1306,7 @@ input[type='file']{
         border-left: 0;
         border-bottom: 2px solid #edb727;
         padding-bottom: 5px;
+        margin-top:20px;
     }
 }
 

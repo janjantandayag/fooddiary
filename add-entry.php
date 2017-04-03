@@ -113,6 +113,7 @@
 							<div class="col-md-8 ">
 								<h2 class="entryName"><?= $meal['food_name']; ?></h2>
 								<p class="servingSize"><span class="fa fa-cutlery" style="margin-right:5px"></span> <?= $meal['serving_size']; ?></p>
+								<p class="servingSize"><span class="fa fa-smile-o" style="margin-right:5px"></span> <?= $meal['emotion_name']; ?></p>
 								<p class="entryDate"><span class="fa fa-clock-o" style="margin-right:5px"></span>
 									<?php 
 										$date = strtotime($meal['entry_date']);

@@ -71,18 +71,18 @@
 								<h2 class="degreeHeader">45 degree photo</h2>
 								<form action='food-detail.php' method="POST" enctype="multipart/form-data">
 								<div class="row">
-									<div class="col-md-6 col-xs-6">
+									<div class="col-md-12">
 										<label for="file-photo-45" class="custom-file-take">
-										    <i class="fa fa-camera"></i> Take Photo
+										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
 										<input type="file" id="file-photo-45" name="deg45" accept="image/*" capture="camera" onchange="document.getElementById('deg45').src = window.URL.createObjectURL(this.files[0])">
-									</div>
+									</div><!-- 
 									<div class="col-md-6 col-xs-6">
 											<label for="file-select-45" class="custom-file-select">
 										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
 										<input id="file-select-45" type="file" name="deg45" onchange="document.getElementById('deg45').src = window.URL.createObjectURL(this.files[0])"/>
-									</div>
+									</div> -->
 								</div>
 								<div class="imgContainer">
 									<img src="img/45deg.jpg" id="deg45"  class="imgPreview" />
@@ -91,18 +91,18 @@
 							<div class="col-md-6 degree90">
 								<h2 class="degreeHeader">90 degree photo</h2>
 								<div class="row">
-									<div class="col-md-6 col-xs-6">
+									<div class="col-md-12">
 										<label for="file-photo-90" class="custom-file-take">
-										    <i class="fa fa-camera"></i> Take Photo
+										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
 										<input type="file" id="file-photo-90" name="deg90" accept="image/*" capture="camera" onchange="document.getElementById('deg90').src = window.URL.createObjectURL(this.files[0])">
 									</div>
-									<div class="col-md-6 col-xs-6">
+									<!-- <div class="col-md-6 col-xs-6">
 										<label for="file-select-90" class="custom-file-select">
 										    <i class="fa fa-cloud-upload"></i> Select Photo
 										</label>
 										<input id="file-select-90" type="file" name="deg90" onchange="document.getElementById('deg90').src = window.URL.createObjectURL(this.files[0])"/>
-									</div>
+									</div> -->
 								</div>
 								<div class="imgContainer">
 									<img src="img/90deg.jpg" id="deg90"  class="imgPreview" />

@@ -156,7 +156,7 @@ Class Database {
 	}
 	public function getRecentEntries(){
 		$uid = $_SESSION['userId'];
-		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id = $uid AND item.entry_id=entries.entry_id ORDER BY entry_date DESC LIMIT 4" ); 
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item,emotions WHERE user_id = $uid AND item.entry_id=entries.entry_id AND entries.emotion_id = emotions.emotion_id ORDER BY entry_date DESC LIMIT 4" ); 
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();
  		return $result;
@@ -185,7 +185,7 @@ Class Database {
 	public function getMeals($id){
 		$uid = $_SESSION['userId'];
 		$date = $_SESSION['throwdate'];
-		$stmt = $this->conn->prepare("SELECT * FROM entries,item WHERE user_id=$uid AND meal_id=$id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date' ORDER BY entry_date DESC"  ); 
+		$stmt = $this->conn->prepare("SELECT * FROM entries,item,emotions WHERE user_id=$uid AND meal_id=$id AND entries.emotion_id = emotions.emotion_id AND item.entry_id=entries.entry_id AND DATE_FORMAT(entry_date,'%Y-%m-%d') = '$date' ORDER BY entry_date DESC"  ); 
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();
  		return $result;

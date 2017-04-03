@@ -78,7 +78,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<img src="data:image/jpeg;base64, <?php echo base64_encode($entry['deg45']); ?>" class="photoPreview"/>
-							<img src="data:image/jpeg;base64, <?php echo base64_encode($entry['deg45']); ?>" class="photoPreview"/>
+							<img src="data:image/jpeg;base64, <?php echo base64_encode($entry['deg90']); ?>" class="photoPreview"/>
 						</div>
 						<div class="col-md-6">
 							<h2 class="previewName"><?= $entry['name']; ?></h2>

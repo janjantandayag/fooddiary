@@ -137,8 +137,9 @@
 					<img class="recentEntriesImg" src="database/displayImage.php?itemId=<?=$recent['item_id'] ?>" />
 					<div class="recentEntriesDesc">
 						<p class="recentFoodName"><?=$recent['food_name'] ?> </p>
-						<p class="recentEntriesDate"><span style="margin-right:5px" class="fa fa-calendar-o"></span><?=$recent['entry_date'] ?></p>
+						<p class="recentEntriesDate"><span style="margin-right:5px" class="fa fa-calendar-o"></span><?= date("Y-m-d h:i:s A",strtotime($recent['entry_date'])) ?></p>
 						<p class="recentServing"><span style="margin-right:5px" class="fa fa-cutlery"></span><?=$recent['serving_size'] ?> </p>
+						<p class="recentServing"><span style="margin-right:5px" class="fa fa-smile-o"></span><?=$recent['emotion_name'] ?> </p>
 					</div>
 				</div>
 				<?php } ?>

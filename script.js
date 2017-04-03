@@ -12,6 +12,11 @@ $(window).resize(function() {
   	$('#mobile').attr('class','displayNone'); 
   }  
 });
+$(window).resize(function() {
+  if($(window).width()<=425){
+  	$('.selectPhoto90').attr('display','none'); 
+  }  
+});
 
 
 
