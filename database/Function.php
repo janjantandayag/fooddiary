@@ -34,6 +34,30 @@ Class Database {
 		$_SESSION['name'] = $result['first_name'];
 		header("location: dashboard.php");
 	}
+	public function signUp($firstName,$lastName,$gender,$birthDate,$username,$password){
+		$stmt = $this->conn->prepare("INSERT INTO users(first_name,last_name,gender,date_of_birth,username,password) VALUES(:firstName,:lastName,:gender,:birthDate,:username,md5(:password))");
+ 		$stmt->execute([$firstName,$lastName,$gender,$birthDate,$username,$password]);
+ 		$id = $this->conn->lastInsertId();
+		$_SESSION['loggedIn'] =  true;
+		$_SESSION['userId'] = $id;
+		$_SESSION['name'] = $firstName;
+		header("location: ../dashboard.php");
+	}
+	public function updatePassUser($username,$password){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("UPDATE users SET username =:username,password=md5(:password) WHERE user_id=$uid"); 
+ 		$stmt->execute([$username,$password]);
+ 		$_SESSION['loggedIn'] = false;
+ 		session_unset($_SESSION['loggedIn'], $_SESSION['userId'], $_SESSION['name']); 
+		session_destroy(); 
+   		$_SESSION['detail'] = [];
+ 		echo "<script>
+			alert('Password/Username updated!');
+			alert('Please login to continue!');
+			window.location = './index.php';
+		  </script>";
+	}
+
 	public function isLogin(){
 		if(isset($_SESSION['loggedIn'])){
 		}
@@ -45,6 +69,13 @@ Class Database {
 				</script>
 			";
 		}
+	}
+	public function getUserDetails(){
+		$uid = $_SESSION['userId'];
+		$stmt = $this->conn->prepare("SELECT * FROM users WHERE user_id = $uid"); 
+ 		$stmt->execute(); 
+ 		$result = $stmt->fetch();
+ 		return $result;
 	}
 	public function getEntries(){
 		$uid = $_SESSION['userId'];
@@ -195,16 +226,7 @@ Class Database {
  		$stmt->execute(); 
  		$result = $stmt->fetchAll();
  		return $result;
-	}
-	public function signUp($firstName,$lastName,$gender,$birthDate,$username,$password){
-		$stmt = $this->conn->prepare("INSERT INTO users(first_name,last_name,gender,date_of_birth,username,password) VALUES('$firstName','$lastName','$gender','$birthDate','$username',md5('$password'))");
- 		$stmt->execute();
- 		$id = $this->conn->lastInsertId();
-		$_SESSION['loggedIn'] =  true;
-		$_SESSION['userId'] = $id;
-		$_SESSION['name'] = $firstName;
-		header("location: ../dashboard.php");
-	}
+	}	
 }
 
 $db = new Database;

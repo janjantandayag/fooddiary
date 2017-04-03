@@ -104,7 +104,7 @@
 		    		</select>
 		    	</div>
       			<div class="col-md-6 col-sm-6">
-		      		<label for="birthDate">Age of Birth</label>
+		      		<label for="birthDate">Date of Birth</label>
 		    		<input type="date" name="birthDate" class="form-control" id="birthDate">
 		    	</div>
 	    	</div>

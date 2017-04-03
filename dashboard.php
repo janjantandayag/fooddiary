@@ -22,18 +22,27 @@
 					<div class="right-col">
 						<ul id="topNav">
 							<li><a href="archive.php"><span class="fa fa-calendar-o"></span>archive</a></li>
-							<li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a>	</li>	
+							<li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span>add entry</a></li>	
 							<li class="navActive"><a href="dashboard.php"><span class="fa fa-dashboard"></span>dashboard</a></li>
-							<li><a href="database/logout.php"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span>help</a></li>
+							<li  class="userNav"><a href="#"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a>
+                            <div class="dropdown-content">
+						    	<a href="setting.php"><span class="fa fa-gear"></span>Settings</a>
+						    	<a href="database/logout.php"><span class="fa fa-power-off"></span>Logout</a>
+						  	</div>
+							</li>
 						</ul>	
 					</div>
 					<div>
 						<a href="javascript:void(0);" onclick="myFunction();" class="icon">&#9776;</a>
                         <ul  id="mobile"  class="displayNone">
                             <li><a href="archive.php"><span class="fa fa-calendar-o"></span> archive</a></li>
-                            <li><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
-                            <li class="mobile-navActive"><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
-                            <li><a href="database/logout.php"><span class="fa fa-user"></span> Hello, <?= $_SESSION['name'] ?></a></li>
+                            <li  class="mobile-navActive"><a href="add-entry.php"><span class="fa fa-plus-square-o"></span> add entry</a>  </li>   
+                            <li><a href="dashboard.php"><span class="fa fa-dashboard"></span> dashboard</a></li>
+							<li><a href="documentation.php" target="_blank"><span class="fa fa-question-circle"></span> help</a></li>
+                            <li><a href="setting.php"><span class="fa fa-gear"></span> setting</a></li>
+                            <li><a href="database/logout.php"><span class="fa fa-power-off"></span> <?= $_SESSION['name'] ?>, logout</a>
+                            </li>
                         </ul>   
                     </div>
 				</div>
@@ -80,7 +89,7 @@
 							<?php
 								$entries = $db->getEntries();
 								foreach($entries as $entry){ ?>						
-							<div class="circumplexFood" style="left:<?=$entry['xCoor']-5;?>%;top:<?=$entry['yCoor']-5;?>%">
+							<div class="circumplexFood" style="left:<?=$entry['xCoor'];?>%;top:<?=$entry['yCoor']-5;?>%">
 								<h5 class="circumplexFoodName"><?=$entry['food_name'];?></h5>
 								<img src="database/displayImage.php?itemId=<?=$entry['item_id']?>" style="border:<?= $db->getBorderColor($entry['emotion_id']); ?>;" class="circumplexFoodImg" />
 							</div>
