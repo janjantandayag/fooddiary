@@ -88,34 +88,34 @@
       		<div class="row marginTop">
       			<div class="col-md-6 col-sm-6">
 		      		<label for="firstName">First Name</label>
-		    		<input type="text" class="form-control" name="firstName" id="firstName">
+		    		<input type="text" class="form-control" name="firstName" id="firstName" required>
 		    	</div>
       			<div class="col-md-6 col-sm-6">
 		      		<label for="lastName">Last Name</label>
-		    		<input type="text" class="form-control" name="lastName" id="lastName">
+		    		<input type="text" class="form-control" name="lastName" id="lastName" required>
 		    	</div>
 	    	</div>
 	    	<div class="row marginTop">
       			<div class="col-md-6 col-sm-6">
 		      		<label for="gender">Gender</label>
-		    		<select id="gender" name="gender" class="form-control">
+		    		<select id="gender" name="gender" class="form-control" required>
 		    			<option value="male">Male</option>
 		    			<option value="female">Female</option>
 		    		</select>
 		    	</div>
       			<div class="col-md-6 col-sm-6">
 		      		<label for="birthDate">Date of Birth</label>
-		    		<input type="date" name="birthDate" class="form-control" id="birthDate">
+		    		<input type="date" name="birthDate" class="form-control" id="birthDate" required>
 		    	</div>
 	    	</div>
 	    	<div class="row marginTop">
       			<div class="col-md-6 col-sm-6">
 		      		<label for="username">Username</label>
-		      		<input type="text" class="form-control" id="username" name="username"/>
+		      		<input type="text" class="form-control" id="username" name="username" required/>
 		    	</div>
       			<div class="col-md-6 col-sm-6">
 		      		<label for="password">Password</label>
-		    		<input type="password" name="password" class="form-control" id="password">
+		    		<input type="password" name="password" class="form-control" id="password" required>
 		    	</div>
 	    	</div>
 	    	<input type="submit" name="signUp" id="signUpButton" value="Sign up"/>

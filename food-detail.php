@@ -2,7 +2,7 @@
    	include('database/Function.php');
     $db = new Database;
     $db->isLogin();    
-    if(!isset($_SESSION['detail']['mealType'])){
+    if(!isset($_SESSION['detail']['emotionId'])){
     	echo "<script>alert('Oops! Please select meal type first!')</script>";
     	echo "<script>window.location.href='add-entry.php'</script>";
     }

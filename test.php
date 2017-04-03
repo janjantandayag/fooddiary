@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	var_dump($_SESSION['detail']);
+	var_dump($_SESSION['detail']['emotionId']);
 	// var_dump(date("Y-m-d H:i:s"));
 	// var_dump($_SESSION['detail']['entry']);
 	// var_dump($_SESSION['detail']);
