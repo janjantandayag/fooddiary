@@ -11,7 +11,8 @@ Class Database {
 		try {
 			    $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
 			    // set the PDO error mode to exception
-			    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			     $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+				 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    }
 		catch(PDOException $e)
 		    {
@@ -19,14 +20,14 @@ Class Database {
 		    }
 	}
 	public function isExist($username, $password){
-		$stmt = $this->conn->prepare("SELECT * FROM users WHERE users.username = '$username' AND users.password=md5('$password')"); 
- 		$stmt->execute();
+		$stmt = $this->conn->prepare("SELECT * FROM users WHERE users.username = :username AND users.password=md5(:password)"); 
+ 		$stmt->execute([$username,$password]);
  		$exist = $stmt->rowCount();
  		return $exist;
 	}
 	public function login($username, $password){
-		$stmt = $this->conn->prepare("SELECT * FROM users WHERE users.username = '$username' AND users.password=md5('$password')"); 
- 		$stmt->execute();
+		$stmt = $this->conn->prepare("SELECT * FROM users WHERE users.username = :name AND users.password=md5(:password)"); 
+ 		$stmt->execute([$username,$password]);
 		$result = $stmt->fetch(); 			
 		$_SESSION['loggedIn'] =  true;
 		$_SESSION['userId'] = $result['user_id'];

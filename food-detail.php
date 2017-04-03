@@ -108,39 +108,43 @@
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
 									    	<label for="foodName" class="labelFood">Food Name</label>
-									    	<input type="text" class="form-control" id="foodName" name="foodName">
+									    	<input type="text" class="form-control" id="foodName" name="foodName" required>
 									  	</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
 									    	<label for="servingSize" class="labelFood">Serving Size</label>
-									    	<input type="text" class="form-control" id="servingSize" name="servingSize">
+									    	<input type="text" class="form-control" id="servingSize" name="servingSize" required>
 									  	</div>
 									</div>
 								</div>
 							  	<div class="form-group">
 							    	<label for="description" class="labelFood">Description</label>
-							    	<textarea class="form-control" id="description" name="description"></textarea>
+							    	<textarea class="form-control" id="description" name="description" required></textarea>
 							  	</div>
 							  	<input type="submit" name="addDiary" class="detailSubmit" value="Add to Diary" />
 						 	</form>
 							<?php
 								if(isset($_POST['addDiary'])){
-									$img45 = $_FILES["deg45"]["tmp_name"];
-									$img90 = $_FILES["deg90"]["tmp_name"];
-
-									$_SESSION['item']['name'] = $_POST['foodName'];
-									$_SESSION['item']['serving'] = $_POST['servingSize'];
-									$_SESSION['item']['description'] = $_POST['description'];
-									$_SESSION['item']['deg45'] =  file_get_contents($img45);
-									$_SESSION['item']['deg90'] =  file_get_contents($img90);
-									if (!array_key_exists('entry', $_SESSION['detail'])){
-										$_SESSION['detail']['entry'] = [];
-									}									
-									array_push($_SESSION['detail']['entry'], $_SESSION['item']);
-									$_SESSION['item'] = [];
-
-									echo "<script>window.location.href='entry-list.php';</script>";
+									if($_FILES['deg45']['size'] == 0 || $_FILES['deg90']['size'] == 0){
+										echo "<script>alert('Images are required!');</script>";
+									}
+									else{
+										$img45 = $_FILES["deg45"]["tmp_name"];
+										$img90 = $_FILES["deg90"]["tmp_name"];
+										
+										$_SESSION['item']['name'] = $_POST['foodName'];
+										$_SESSION['item']['serving'] = $_POST['servingSize'];
+										$_SESSION['item']['description'] = $_POST['description'];
+										$_SESSION['item']['deg45'] =  file_get_contents($img45);
+										$_SESSION['item']['deg90'] =  file_get_contents($img90);
+										if (!array_key_exists('entry', $_SESSION['detail'])){
+											$_SESSION['detail']['entry'] = [];
+										}									
+										array_push($_SESSION['detail']['entry'], $_SESSION['item']);
+										$_SESSION['item'] = [];
+										echo "<script>window.location.href='entry-list.php';</script>";
+									}
 								}
 							?>						 	
 						</div>

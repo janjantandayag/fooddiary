@@ -34,8 +34,10 @@
 								<?php
 									$db = new Database;
 									if(isset($_POST['submit'])){
-										if($db->isExist($_POST['username'], $_POST['password'])){
-											$db->login($_POST['username'], $_POST['password']);
+										$username = htmlspecialchars($_POST['username']);
+										$password = htmlspecialchars($_POST['password']);
+										if($db->isExist($username,$password)){
+											$db->login($username,$password);
 										}
 										else{ ?>
 								<div class="message">

@@ -5,9 +5,9 @@
     $db->isLogin();
     if(isset($_GET['date'])){
     	$_SESSION['date'] = $_GET['date'];
-    	if($_SESSION['date']==date("Y-m-d",time() + 23000)){ 			
-    		$_SESSION['date'] = date("Y-m-d H:m:s",time() + 23000);
-    		$_SESSION['throwdate'] = date("Y-m-d",time() + 23000);
+    	if($_SESSION['date']==date("Y-m-d",time())){ 			
+    		$_SESSION['date'] = date("Y-m-d H:m:s",time());
+    		$_SESSION['throwdate'] = date("Y-m-d",time());
     		$_SESSION['echodate'] = 'TODAY';
     	}
     	else{
@@ -17,8 +17,8 @@
     	}
     }
     else{
-    	$_SESSION['date'] = date("Y-m-d H:m:s",time() + 23000);
-		$_SESSION['throwdate'] = date("Y-m-d",time() + 23000);
+    	$_SESSION['date'] = date("Y-m-d H:m:s",time());
+		$_SESSION['throwdate'] = date("Y-m-d",time());
  		$_SESSION['echodate'] = 'TODAY';
     }
 ?>
