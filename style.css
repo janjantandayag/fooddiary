@@ -331,9 +331,9 @@ input, select {
 }
 .circumplex-model{
     background: url(img/circumplex-bg.jpg) no-repeat center center rgba(0,0,0,.1);
-
     background-size: cover;
     position: relative;
+    margin: 0 auto;
 }
 
 .displayNone{
@@ -348,6 +348,11 @@ input, select {
 
 }
 /* VERTICAL LINE */
+.circumplex-body{
+    background: url(img/circumplex-bg.jpg) no-repeat center center rgba(0,0,0,.1);
+    background-size: cover;
+    padding: 30px 0;
+}
 .circumplex-model:before{
     position: absolute;
     content:"";
@@ -427,7 +432,7 @@ input, select {
     z-index: 501;
 }
 .circumplexFood:hover .circumplexFoodName{
-    font-size: 100%;
+    font-size: 80%;
     font-weight: bold;
     padding-left:5px;
     background:#efefef;
@@ -438,9 +443,8 @@ input, select {
 
 }
 .circumplexFoodName{
-    font-size: 87.5%;
+    font-size: 60%;
     color:#a79797;
-    max-width:30px;
     font-family: novaThin;
 }
 .circumplexFoodImg{

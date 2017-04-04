@@ -76,7 +76,7 @@
 	</section>
 	   <!-- jQuery 2.1.4 -->
     <script src="calendar/jQuery/jQuery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="calendar/moment.min.js"></script>
     <script src="calendar/fullcalendar/fullcalendar.min.js"></script>
     <script>
         /* initialize the calendar*/
